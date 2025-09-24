@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار في وجوب اتباع الدليل وذم التقليد الأعمى</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #202124;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        .instructions {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-right: 5px solid #1a73e8;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1a73e8;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        label {
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-left: 10px;
+        }
+        .submit-btn {
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0d62c9;
+        }
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e8f0fe;
+            text-align: center;
+        }
+        .correct {
+            color: #0f9d58;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #db4437;
+            font-weight: bold;
+        }
+        .feedback {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>اختبار في وجوب اتباع الدليل وذم التقليد الأعمى</h1>
+        
+        <div class="instructions">
+            <p>هذا الاختبار يتكون من 20 سؤالاً، لكل سؤال 5 نقاط. الإجمالي 100 نقطة.</p>
+            <p>اختر الإجابة الصحيحة لكل سؤال ثم انقر على زر "تصحيح الإجابات" في الأسفل.</p>
+        </div>
+        
+        <form id="quiz-form">
+            <!-- السؤال 1 -->
+            <div class="question">
+                <div class="question-title">1. ما معنى قول ابن عباس: "يوشك أن تنزل عليكم حجارة من السماء"؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> تعجب من تقديم رأي أبي بكر وعمر على حديث النبي صلى الله عليه وسلم</label>
+                    <label><input type="radio" name="q1" value="b"> تحذير من عدم أداء فريضة الحج</label>
+                    <label><input type="radio" name="q1" value="c"> ذم للتمتع في الحج</label>
+                    <label><input type="radio" name="q1" value="d"> تشجيع على الاجتهاد دون اعتبار للنصوص</label>
+                </div>
+                <div id="fb-q1" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 2 -->
+            <div class="question">
+                <div class="question-title">2. ما موقف ابن عباس من التمتع بالعمرة إلى الحج؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> كان يرى أنه غير جائز</label>
+                    <label><input type="radio" name="q2" value="b"> كان يرى أنه واجب ويستدل بحديث سراقة بن مالك</label>
+                    <label><input type="radio" name="q2" value="c"> كان يرى أن إفراد الحج أفضل</label>
+                    <label><input type="radio" name="q2" value="d"> كان يترك الأمر للاجتهاد دون نص</label>
+                </div>
+                <div id="fb-q2" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 3 -->
+            <div class="question">
+                <div class="question-title">3. ما معنى قول الإمام مالك: "ما منا إلا راد ومردود عليه إلا صاحب هذا القبر"؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> أن جميع العلماء معصومون من الخطأ</label>
+                    <label><input type="radio" name="q3" value="b"> أن العلماء يخطئون ويصيبون إلا النبي صلى الله عليه وسلم</label>
+                    <label><input type="radio" name="q3" value="c"> أن قبر النبي صلى الله عليه وسلم مصدر للتشريع</label>
+                    <label><input type="radio" name="q3" value="d"> أن الاجتهاد منقطع بعد عصر النبي صلى الله عليه وسلم</label>
+                </div>
+                <div id="fb-q3" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 4 -->
+            <div class="question">
+                <div class="question-title">4. ما حكم من بلغه الدليل من الكتاب والسنة ولم يأخذ به تقليداً لإمامه؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> يجوز ذلك إذا كان الإمام مجتهداً</label>
+                    <label><input type="radio" name="q4" value="b"> يجب الإنكار عليه بالتغليظ لمخالفته الدليل</label>
+                    <label><input type="radio" name="q4" value="c"> يعذر لجهله بالدليل</label>
+                    <label><input type="radio" name="q4" value="d"> يثاب على تقليد إمامه</label>
+                </div>
+                <div id="fb-q4" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 5 -->
+            <div class="question">
+                <div class="question-title">5. ما معنى قول الإمام أحمد: "عجبت لقوم عرفوا الإسناد وصحته يذهبون إلى رأي سفيان"؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> استحسان لتقديم الرأي على الحديث الصحيح</label>
+                    <label><input type="radio" name="q5" value="b"> إنكار لتقديم رأي سفيان الثوري على الحديث الصحيح</label>
+                    <label><input type="radio" name="q5" value="c"> تشجيع على تقليد سفيان الثوري</label>
+                    <label><input type="radio" name="q5" value="d"> ذم للحديث والإسناد</label>
+                </div>
+                <div id="fb-q5" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 6 -->
+            <div class="question">
+                <div class="question-title">6. ما المراد بالفتنة في قوله تعالى: {فَلْيَحْذَرِ الَّذِينَ يُخَالِفُونَ عَنْ أَمْرِهِ أَنْ تُصِيبَهُمْ فِتْنَةٌ} حسب تفسير الإمام أحمد؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="a"> الفقر والحاجة</label>
+                    <label><input type="radio" name="q6" value="b"> الشرك والكفر</label>
+                    <label><input type="radio" name="q6" value="c"> المرض والوباء</label>
+                    <label><input type="radio" name="q6" value="d"> الخلاف بين العلماء</label>
+                </div>
+                <div id="fb-q6" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 7 -->
+            <div class="question">
+                <div class="question-title">7. ما معنى حديث عدي بن حاتم في قوله تعالى: {اتَّخَذُوا أَحْبَарَهُمْ وَرُهْبَانَهُمْ أَرْبَاباً مِنْ دُونِ اللَّهِ}؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="a"> أنهم كانوا يسجدون للأحبار والرهبان</label>
+                    <label><input type="radio" name="q7" value="b"> أنهم كانوا يطيعونهم في تحليل الحرام وتحريم الحلال</label>
+                    <label><input type="radio" name="q7" value="c"> أنهم كانوا يقدمون لهم القرابين</label>
+                    <label><input type="radio" name="q7" value="d"> أنهم كانوا يبنون المعابد لهم</label>
+                </div>
+                <div id="fb-q7" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 8 -->
+            <div class="question">
+                <div class="question-title">8. متى يسوغ للإمام أن يجتهد حسب النص؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="a"> إذا لم يبلغه الحديث أو لم يثبت عنده</label>
+                    <label><input type="radio" name="q8" value="b"> إذا خالف النص مصلحة الأمة</label>
+                    <label><input type="radio" name="q8" value="c"> إذا كان النص منسوخاً في رأيه</label>
+                    <label><input type="radio" name="q8" value="d"> إذا اختلفت المذاهب في المسألة</label>
+                </div>
+                <div id="fb-q8" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 9 -->
+            <div class="question">
+                <div class="question-title">9. ما موقف الأئمة الأربعة من التقليد إذا صح الحديث؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="a"> أوجبوا التقليد وترك الحديث</label>
+                    <label><input type="radio" name="q9" value="b"> نهوا عن تقليدهم إذا استبانت السنة</label>
+                    <label><input type="radio" name="q9" value="c"> أجازوا التقليد حتى مع وجود الحديث</label>
+                    <label><input type="radio" name="q9" value="d"> سكتوا عن هذه المسألة</label>
+                </div>
+                <div id="fb-q9" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 10 -->
+            <div class="question">
+                <div class="question-title">10. ما معنى قول أبي حنيفة: "إذا قلت قولا وكتاب الله يخالفه فاتركوا قولي لكتاب الله"؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="a"> أن قوله يجب أن يقدم على القرآن</label>
+                    <label><input type="radio" name="q10" value="b"> أن القرآن يجب أن يقدم على قوله إذا تعارضا</label>
+                    <label><input type="radio" name="q10" value="c"> أن القرآن وقوله متساويان</label>
+                    <label><input type="radio" name="q10" value="d"> أن الاجتهاد لا يجوز مع وجود النص</label>
+                </div>
+                <div id="fb-q10" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 11 -->
+            <div class="question">
+                <div class="question-title">11. ما معنى قول الشافعي: "إذا صح الحديث بما يخالف قولي فاضربوا بقولي الحائط"？</div>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="a"> أن الحديث الصحيح يجب أن يقدم على رأيه</label>
+                    <label><input type="radio" name="q11" value="b"> أن رأيه يجب أن يقدم على الحديث</label>
+                    <label><input type="radio" name="q11" value="c"> أن الحديث ورأيه متساويان</label>
+                    <label><input type="radio" name="q11" value="d"> أن الحديث لا يعمل به إذا خالف رأي الإمام</label>
+                </div>
+                <div id="fb-q11" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 12 -->
+            <div class="question">
+                <div class="question-title">12. ما حكم طاعة الأمراء ومتابعتهم فيما يخالف شرع الله؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="a"> تجوز طاعتهم مطلقاً</label>
+                    <label><input type="radio" name="q12" value="b"> لا تجوز طاعتهم في معصية الله</label>
+                    <label><input type="radio" name="q12" value="c"> تجوز طاعتهم إذا كان في ذلك مصلحة</label>
+                    <label><input type="radio" name="q12" value="d"> تجوز طاعتهم إذا وافق رأي العلماء</label>
+                </div>
+                <div id="fb-q12" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 13 -->
+            <div class="question">
+                <div class="question-title">13. ما معنى قوله تعالى: {فَإِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ}؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="a"> الرد إلى آراء العلماء</label>
+                    <label><input type="radio" name="q13" value="b"> الرد إلى الكتاب والسنة</label>
+                    <label><input type="radio" name="q13" value="c"> الرد إلى أئمة المذاهب</label>
+                    <label><input type="radio" name="q13" value="d"> الرد إلى العرف والعادة</label>
+                </div>
+                <div id="fb-q13" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 14 -->
+            <div class="question">
+                <div class="question-title">14. ما حكم التقليد في مسائل الاجتهاد التي لا دليل فيها من كتاب أو سنة؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="a"> لا يسوغ التقليد مطلقاً</label>
+                    <label><input type="radio" name="q14" value="b"> يسوغ التقليد في هذه الحالة</label>
+                    <label><input type="radio" name="q14" value="c"> يجب الاجتهاد على كل مكلف</label>
+                    <label><input type="radio" name="q14" value="d"> يحرم التقليد حتى في هذه الحالة</label>
+                </div>
+                <div id="fb-q14" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 15 -->
+            <div class="question">
+                <div class="question-title">15. ما معنى قول عمر رضي الله عنه: "يهدم الإسلام زلة العالم، وجدال المنافق بالقرآن، وحكم الأئمة المضلين"؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="a"> أن هذه الأمور من أسباب ضعف الإسلام وهدمه</label>
+                    <label><input type="radio" name="q15" value="b"> أن هذه الأمور لا تؤثر في الإسلام</label>
+                    <label><input type="radio" name="q15" value="c"> أن الإسلام محصن ضد هذه الأمور</label>
+                    <label><input type="radio" name="q15" value="d"> أن هذه الأمور من علامات قوة الإسلام</label>
+                </div>
+                <div id="fb-q15" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 16 -->
+            <div class="question">
+                <div class="question-title">16. ما الواجب على المكلف إذا بلغه الدليل من كتاب الله وسنة رسوله وفهم معناه؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="a"> أن ينظر في مذاهب العلماء أولاً</label>
+                    <label><input type="radio" name="q16" value="b"> أن يستشير إمامه في تطبيقه</label>
+                    <label><input type="radio" name="q16" value="c"> أن ينتهي إليه ويعمل به وإن خالفه من خالفه</label>
+                    <label><input type="radio" name="q16" value="d"> أن يتركه إذا خالف مذهبه</label>
+                </div>
+                <div id="fb-q16" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 17 -->
+            <div class="question">
+                <div class="question-title">17. ما حكم من يرد بعض قول الرسول صلى الله عليه وسلم حسب تحذير الإمام أحمد؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="a"> أنه يعرض نفسه لوقوع الزيغ في قلبه فيهلك</label>
+                    <label><input type="radio" name="q17" value="b"> أنه مأجور على اجتهاده</label>
+                    <label><input type="radio" name="q17" value="c"> أنه معذور لجهله</label>
+                    <label><input type="radio" name="q17" value="d"> أنه أفضل من المقلد</label>
+                </div>
+                <div id="fb-q17" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 18 -->
+            <div class="question">
+                <div class="question-title">18. ما سبب إنكار الإمام أحمد على من يعرفون الإسناد والصحة ثم يذهبون إلى رأي سفيان؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="a"> لأن سفيان ليس من العلماء</label>
+                    <label><input type="radio" name="q18" value="b"> لأن هذا يؤول إلى زيغ القلوب الذي يكون به المرء كافراً</label>
+                    <label><input type="radio" name="q18" value="c"> لأن رأي سفيان всегда خطأ</label>
+                    <label><input type="radio" name="q18" value="d"> لأن الإسناد ليس مهماً في الدين</label>
+                </div>
+                <div id="fb-q18" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 19 -->
+            <div class="question">
+                <div class="question-title">19. ما معنى قوله تعالى: {أَوَلَمْ يَكْفِهِمْ أَنَّا أَنْزَلْنَا عَلَيْكَ الْكِتَابَ يُتْلَى عَلَيْهِمْ} في هذا السياق؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="a"> أن الكتاب كافٍ عن كل شيء ولا حاجة للسنة</label>
+                    <label><input type="radio" name="q19" value="b"> أن الكتاب كافٍ لهم فلا حاجة لاتباع غيره من الآراء</label>
+                    <label><input type="radio" name="q19" value="c"> أن الكتاب لا يكفي ويحتاج إلى آراء العلماء</label>
+                    <label><input type="radio" name="q19" value="d"> أن الكتاب يحتاج إلى تفسير العلماء فقط</label>
+                </div>
+                <div id="fb-q19" class="feedback"></div>
+            </div>
+            
+            <!-- السؤال 20 -->
+            <div class="question">
+                <div class="question-title">20. ما الذي يشبه حال المقلدين الذين يقدمون أقوال العلماء على النصوص بحال أهل الكتاب؟</div>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="a"> أنهم يتخذون أحبارهم ورهبانهم أرباباً من دون الله</label>
+                    <label><input type="radio" name="q20" value="b"> أنهم يتركون الصلاة والصيام</label>
+                    <label><input type="radio" name="q20" value="c"> أنهم لا يقرؤون الكتاب</label>
+                    <label><input type="radio" name="q20" value="d"> أنهم يعبدون الأصنام</label>
+                </div>
+                <div id="fb-q20" class="feedback"></div>
+            </div>
+            
+            <button type="button" class="submit-btn" onclick="checkAnswers()">تصحيح الإجابات</button>
+        </form>
+        
+        <div id="result" class="result">
+            <h2 id="score-text"></h2>
+            <p id="detailed-feedback"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "a",
+                q2: "b",
+                q3: "b",
+                q4: "b",
+                q5: "b",
+                q6: "b",
+                q7: "b",
+                q8: "a",
+                q9: "b",
+                q10: "b",
+                q11: "a",
+                q12: "b",
+                q13: "b",
+                q14: "b",
+                q15: "a",
+                q16: "c",
+                q17: "a",
+                q18: "b",
+                q19: "b",
+                q20: "a"
+            };
+            
+            const feedbacks = {
+                q1: "قول ابن عباس كان تعجباً من تقديم رأي أبي بكر وعمر على حديث النبي صلى الله عليه وسلم، وتحذيراً من مخالفة النص.",
+                q2: "كان ابن عباس يرى أن التمتع بالعمرة إلى الحج واجب ويستدل بحديث سراقة بن مالك الذي أمرهم النبي صلى الله عليه وسلم أن يجعلوها عمرة.",
+                q3: "قصد الإمام مالك أن جميع العلماء يخطئون ويصيبون ويؤخذ من قولهم ويترك إلا النبي صلى الله عليه وسلم المعصوم.",
+                q4: "يجب الإنكار على من بلغه الدليل ولم يأخذ به تقليداً لإمامه، لأنه بذلك قد خالف الكتاب والسنة.",
+                q5: "كان الإمام أحمد ينكر على من يعرفون صحة الحديث ثم يتركونه ويذهبون إلى رأي سفيان الثوري أو غيره.",
+                q6: "فسر الإمام أحمد الفتنة في الآية بأنها الشرك والكفر، وذلك لما يترتب على مخالفة أمر الرسول من زيغ في القلب.",
+                q7: "بيّن النبي صلى الله عليه وسلم أن اتخاذ الأحبار والرهبان أرباباً يكون بطاعتهم في تحليل الحرام وتحريم الحلال.",
+                q8: "يسوغ للإمام أن يجتهد إذا لم يبلغه الحديث أو لم يثبت عنده، أو ثبت وله معارض أو مخصص ونحو ذلك.",
+                q9: "نهى الأئمة الأربعة عن تقليدهم إذا استبانت السنة، وأمروا بالأخذ بالحديث الصحيح.",
+                q10: "أمر أبو حنيفة بتقديم كتاب الله على قوله إذا تعارضا، showing تواضعه وتمسكه بالدليل.",
+                q11: "أمر الشافعي بتقديم الحديث الصحيح على قوله، وهذا من إنصاف العلماء وتمسكهم بالدليل.",
+                q12: "لا تجوز طاعة الأمراء في معصية الله، لأن الطاعة إنما هي في المعروف ولا طاعة لمخلوق في معصية الخالق.",
+                q13: "المراد بالرد إلى الله والرسول هو الرجوع إلى كتاب الله وسنة رسوله صلى الله عليه وسلم.",
+                q14: "يسوغ التقليد في مسائل الاجتهاد التي لا دليل فيها من كتاب أو سنة، أما مع وجود الدليل فلا.",
+                q15: "بيّن عمر رضي الله عنه أن زلة العالم وجدال المنافق بالقرآن وحكم الأئمة المضلين من أسباب هدم الإسلام.",
+                q16: "يجب على المكلف أن ينتهي إلى الدليل ويعمل به وإن خالفه من خالفه، لأنه لا عذر بعد بلوغ الحجة.",
+                q17: "حذر الإمام أحمد من أن رد بعض قول الرسول صلى الله عليه وسلم قد يؤدي إلى زيغ القلب فيهلك صاحبه.",
+                q18: "إنكار الإمام أحمد كان لأن هذا الفعل يؤول إلى زيغ القلوب الذي يكون به المرء كافراً.",
+                q19: "الآية تبين أن كتاب الله كافٍ للمسلمين فلا حاجة لاتباع الآراء المخالفة له.",
+                q20: "شبّه النبي صلى الله عليه وسلم حال من يطيع العلماء في تحليل الحرام وتحريم الحال بحال أهل الكتاب الذين اتخذوا أحبارهم ورهبانهم أرباباً من دون الله."
+            };
+            
+            let score = 0;
+            const totalQuestions = 20;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const feedbackEl = document.getElementById(`fb-q${i}`);
+                
+                if (selectedOption) {
+                    if (selectedOption.value === answers[`q${i}`]) {
+                        score += 5;
+                        feedbackEl.innerHTML = `<span class="correct">إجابة صحيحة!</span> ${feedbacks[`q${i}`]}`;
+                    } else {
+                        feedbackEl.innerHTML = `<span class="incorrect">إجابة خاطئة!</span> ${feedbacks[`q${i}`]}`;
+                    }
+                } else {
+                    feedbackEl.innerHTML = `<span class="incorrect">لم تقم بالإجابة على هذا السؤال.</span> ${feedbacks[`q${i}`]}`;
+                }
+            }
+            
+            const percentage = (score / (totalQuestions * 5)) * 100;
+            const scoreText = `درجتك: ${score} من ${totalQuestions * 5} (${percentage.toFixed(1)}%)`;
+            
+            document.getElementById('score-text').textContent = scoreText;
+            
+            let detailedFeedback = "";
+            if (percentage >= 90) {
+                detailedFeedback = "ممتاز! لديك فهم قوي لمسألة وجوب اتباع الدليل وذم التقليد الأعمى.";
+            } else if (percentage >= 70) {
+                detailedFeedback = "جيد جداً! لديك فهم جيد لكن يمكنك تحسين معرفتك ببعض النقاط.";
+            } else if (percentage >= 50) {
+                detailedFeedback = "مقبول. تحتاج إلى مراجعة الموضوع مرة أخرى.";
+            } else {
+                detailedFeedback = "ضعيف. ننصحك بدراسة الموضوع بعناية.";
+            }
+            
+            document.getElementById('detailed-feedback').textContent = detailedFeedback;
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فضل طلب العلم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(135deg, #f8f6f0 0%, #e6e2d3 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #2c5e1a 0%, #4a7c2d 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #4a7c2d 0%, #5b9237 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .card-body h3 {
+            color: #2c5e1a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e6e2d3;
+            padding-bottom: 8px;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+        }
+        
+        .quote {
+            background-color: #f8f6f0;
+            border-right: 5px solid #4a7c2d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        
+        .verse {
+            background-color: #e6f7e6;
+            border-right: 5px solid #2c5e1a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #1e3c12;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #2c5e1a 0%, #4a7c2d 100%);
+            color: white;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .footer p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            
+            .card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .header, .footer {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>فضل طلب العلم</h1>
+        <p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام على سيدنا محمد، وعلى آله وصحبه أجمعين</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">معنى العلم لغة واصطلاحًا</div>
+            <div class="card-body">
+                <h3>التعريف اللغوي</h3>
+                <p>العلم هو نقيض الجهل، وهو إدراك الشيء على ما هو عليه إدراكًا جازمًا.</p>
+                
+                <h3>التعريف الاصطلاحي</h3>
+                <p>ينقسم العلم إلى قسمين:</p>
+                <p>1. العلم الشرعي: وهو العلم بما أنزل الله على رسوله من كتاب وسنة، وما يتعلق بهما من علوم آلية.</p>
+                <p>2. العلم الدنيوي: وهو العلم بالصناعات والمهن الدنيوية النافعة، كالطب والهندسة.</p>
+                
+                <div class="quote">
+                    قال الإمام الشافعي: "من تعلم القرآن عظمت قيمته، ومن تكلم في الفقه نبل مقداره، ومن كتب الحديث قويت حجته"
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">حكم طلب العلم</div>
+            <div class="card-body">
+                <h3>الفرض الكفائي</h3>
+                <p>هو ما إذا قام به بعض المسلمين سقط الإثم عن الباقين. ومثاله: التخصص في علوم شرعية دقيقة.</p>
+                
+                <h3>الفرض العيني</h3>
+                <p>هو ما يجب على كل مكلف بعينه أن يتعلمه. وضابطه: كل علم لا تصح عبادة الله إلا به.</p>
+                
+                <div class="verse">
+                    قال رسول الله صلى الله عليه وسلم: «طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ» (رواه ابن ماجه وصححه الألباني)
+                </div>
+                
+                <div class="quote">
+                    قال الإمام أحمد: "الناس محتاجون إلى العلم أكثر من حاجتهم إلى الطعام والشراب، لأن الطعام والشراب يحتاج إليه في اليوم مرة أو مرتين، والعلم يحتاج إليه بعدد الأنفاس"
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">فضل العلم من القرآن الكريم</div>
+            <div class="card-body">
+                <div class="verse">
+                    {قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ ۗ إِنَّمَا يَتَذَكَّرُ أُولُو الْأَلْبَابِ} [الزمر: 9]
+                </div>
+                
+                <div class="verse">
+                    {إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ} [فاطر: 28]
+                </div>
+                
+                <div class="verse">
+                    {يَرْフَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ} [المجادلة: 11]
+                </div>
+                
+                <div class="verse">
+                    {شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ} [آل عمران: 18]
+                </div>
+                
+                <div class="verse">
+                    {وَقُل رَّبِّ زِدْنِي عِلْمًا} [طه: 114]
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">فضل العلم من السنة النبوية</div>
+            <div class="card-body">
+                <div class="verse">
+                    قال رسول الله صلى الله عليه وسلم: «مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا، سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ» (رواه مسلم)
+                </div>
+                
+                <div class="verse">
+                    قال رسول الله صلى الله عليه وسلم: «إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ: إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ» (رواه مسلم)
+                </div>
+                
+                <div class="verse">
+                    قال رسول الله صلى الله عليه وسلم: «نضَّر الله امرأً سمع منا حديثًا فحفظه حتى يبلغه غيره، فرب حامل فقه إلى من هو أفقه منه، ورب حامل فقه ليس بفقيه» (رواه الترمذي)
+                </div>
+                
+                <div class="quote">
+                    قال عبد الله بن مسعود رضي الله عنه: "اغدُ عالمًا أو متعلمًا، ولا تغدُ إمَّعة بين ذلك"
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">آفات وموانع طلب العلم</div>
+            <div class="card-body">
+                <h3>آفات طلب العلم</h3>
+                <p>1. الرياء: قصد الشهرة والمدح بين الناس.</p>
+                <p>2. الكبر: الذي يمنع من التعلم أو قبول الحق.</p>
+                <p>3. حب الدنيا: الذي يشغل عن طلب العلم.</p>
+                
+                <h3>موانع طلب العلم</h3>
+                <p>1. الجهل: وهو أصل كل آفة.</p>
+                <p>2. الغفلة: عن فضل العلم وأهميته.</p>
+                <p>3. التكاسل: والتسويف في طلب العلم.</p>
+                
+                <div class="verse">
+                    قال تعالى: {وَمَنْ أَضَلُّ مِمَّنِ اتَّبَعَ هَوَاهُ بِغَيْرِ هُدًى مِنَ اللَّهِ} [القصص: 50]
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">زكاة العلم</div>
+            <div class="card-body">
+                <p>زكاة العلم هي نشره وتعليمه، وعدم كتمانه.</p>
+                
+                <div class="verse">
+                    قال تعالى: {إِنَّ الَّذِينَ يَكْتُمُونَ مَا أَنزَلْنَا مِنَ الْبَيِّنَاتِ وَالْهُدَىٰ مِن بَعْدِ مَا بَيَّنَّاهُ لِلنَّاسِ فِي الْكِتَابِ ۙ أُولَٰئِكَ يَلْعَنُهُمُ اللَّهُ وَيَلْعَنُهُمُ اللَّاعِنُونَ} [البقرة: 159]
+                </div>
+                
+                <div class="verse">
+                    قال رسول الله صلى الله عليه وسلم: «مَنْ سُئِلَ عَنْ عِلْمٍ فَكَتَمَهُ، أُلْجِمَ يَوْمَ الْقِيَامَةِ بِلِجَامٍ مِنْ نَارٍ» (رواه أبو داود والترمذي)
+                </div>
+                
+                <div class="quote">
+                    قال الحسن البصري: "كان الرجل إذا طلب العلم لم يلبث أن يُرى ذلك في بصره ولسانه ويده"
+                </div>
+                
+                <p>من صور زكاة العلم: التعليم، والتأليف، والدعوة إلى الله، والنصيحة، والفتوى.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">العلم قبل القول والعمل</div>
+            <div class="card-body">
+                <div class="verse">
+                    قال تعالى: {فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ} [محمد: 19]
+                </div>
+                
+                <p>قدم الله تعالى الأمر بالعلم قبل القول والعمل في هذه الآية.</p>
+                
+                <div class="quote">
+                    قال الإمام البخاري في صحيحه: "باب العلم قبل القول والعمل"
+                </div>
+                
+                <h3>الحكمة من تقديم العلم</h3>
+                <p>1. العمل بغير علم ضلال.</p>
+                <p>2. العلم بغير عمل لا ينفع.</p>
+                <p>3. النجاة في الجمع بين العلم والعمل.</p>
+                
+                <div class="verse">
+                    قال تعالى في سورة الفاتحة: {اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ}
+                </div>
+                
+                <p>المغضوب عليهم: العلماء الذين لم يعملوا بعلمهم (اليهود).</p>
+                <p>الضالون: العاملون بغير علم (النصارى).</p>
+                <p>المنعم عليهم: العلماء العاملون (المسلمون).</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">أقوال السلف في فضل العلم</div>
+            <div class="card-body">
+                <div class="quote">
+                    قال عمر بن الخطاب رضي الله عنه: "تفقهوا قبل أن تسودوا"
+                </div>
+                
+                <div class="quote">
+                    قال علي بن أبي طالب رضي الله عنه: "العلم خير من المال، العلم يحرسك وأنت تحرس المال"
+                </div>
+                
+                <div class="quote">
+                    قال الحسن البصري: "تعلموا العلم، فإن لم تستطيعوا أن تعملوا به، فأحبوه وأحبوا أهله"
+                </div>
+                
+                <div class="quote">
+                    قال ابن القيم: "العلم قال الله وقال رسوله، وقال الصحابة ليس بالتمويه"
+                </div>
+                
+                <div class="quote">
+                    قال الإمام مالك: "لا يُؤخذ العلم عن أربعة: سفيه معلن بالسفه، وصاحب هوى يدعو الناس إلى هواه، وكذاب، وشيخ له فضل وعبادة إذا كان لا يعرف ما يحدث"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>وصلى الله على سيدنا محمد وعلى آله وصحبه وسلم</p>
+        <p>الحمد لله رب العالمين</p>
+    </div>
+
+    <script>
+        // يمكن إضافة أي JavaScript لاحقًا إذا لزم الأمر للعرض التفاعلي
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثيرات للبطاقات عند التمرير
+            const cards = document.querySelectorAll('.card');
+            
+            function checkScroll() {
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(cardPosition < screenPosition) {
+                        card.style.opacity = 1;
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // تهيئة البطاقات
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // التحقق عند التمرير
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // التحقق مرة أولى عند التحميل
+        });
+    </script>
+</body>
+</html>

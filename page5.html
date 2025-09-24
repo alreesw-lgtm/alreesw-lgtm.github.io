@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اختبار حول طاعة العلماء والأمراء</title>
+  <style>
+    body { font-family: 'Tahoma', sans-serif; background: #f4f6f9; padding: 20px; }
+    h1 { text-align: center; color: #003366; }
+    .question { background: #fff; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .question h3 { margin-top: 0; }
+    .result { font-size: 18px; font-weight: bold; margin-top: 20px; text-align: center; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; cursor: pointer; border: none; border-radius: 6px; background: #007bff; color: white; }
+    button:hover { background: #0056b3; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>اختبار حول طاعة العلماء والأمراء</h1>
+<form id="quizForm">
+
+  <!-- مثال على سؤال -->
+  <div class="question">
+    <h3>1- ما معنى اتخاذ الأحبار والرهبان أرباباً من دون الله كما فسر النبي ﷺ لعدي بن حاتم؟</h3>
+    <label><input type="radio" name="q1" value="0"> عبادتهم بالسجود لهم</label><br>
+    <label><input type="radio" name="q1" value="5"> طاعتهم في تحليل الحرام وتحريم الحلال</label><br>
+    <label><input type="radio" name="q1" value="0"> محبتهم في الله</label><br>
+    <label><input type="radio" name="q1" value="0"> تقليد هيئتهم فقط</label>
+  </div>
+
+  <div class="question">
+    <h3>2- قول ابن عباس: "يوشك أن تنزل عليكم حجارة من السماء..." يشير إلى:</h3>
+    <label><input type="radio" name="q2" value="5"> خطورة تقديم أقوال الصحابة على حديث النبي ﷺ</label><br>
+    <label><input type="radio" name="q2" value="0"> فضل أبي بكر وعمر فقط</label><br>
+    <label><input type="radio" name="q2" value="0"> استحباب اتباع الرأي مطلقاً</label><br>
+    <label><input type="radio" name="q2" value="0"> أن الطواف يغني عن السعي</label>
+  </div>
+
+  <!-- أكمل بنفس النمط حتى 20 سؤال -->
+  <div class="question">
+    <h3>3- ما حكم طاعة العلماء والأمراء في معصية الله؟</h3>
+    <label><input type="radio" name="q3" value="0"> واجبة</label><br>
+    <label><input type="radio" name="q3" value="0"> مستحبة</label><br>
+    <label><input type="radio" name="q3" value="5"> محرمة وتعتبر من الشرك الأكبر</label><br>
+    <label><input type="radio" name="q3" value="0"> جائزة إذا كان ولي الأمر</label>
+  </div>
+
+  <div class="question">
+    <h3>4- ماذا قال الإمام مالك رحمه الله عن قوله وقول غيره؟</h3>
+    <label><input type="radio" name="q4" value="5"> كل يؤخذ من قوله ويترك إلا النبي ﷺ</label><br>
+    <label><input type="radio" name="q4" value="0"> لا يجوز ترك قول الإمام</label><br>
+    <label><input type="radio" name="q4" value="0"> الأئمة معصومون</label><br>
+    <label><input type="radio" name="q4" value="0"> قول الإمام حجة مطلقة</label>
+  </div>
+
+  <div class="question">
+    <h3>5- معنى قول الإمام أحمد: "عجبت لقوم عرفوا الإسناد وصحته..."</h3>
+    <label><input type="radio" name="q5" value="5"> إنكار ترك الحديث الصحيح والأخذ بالرأي</label><br>
+    <label><input type="radio" name="q5" value="0"> وجوب اتباع سفيان دائماً</label><br>
+    <label><input type="radio" name="q5" value="0"> الحديث لا يقدم على الرأي</label><br>
+    <label><input type="radio" name="q5" value="0"> لا معنى محدد</label>
+  </div>
+
+  <!-- ... اكمل حتى السؤال 20 بنفس الطريقة ... -->
+
+  <button type="button" onclick="checkAnswers()">إرسال الإجابات</button>
+</form>
+
+<div id="result" class="result"></div>
+
+<script>
+function checkAnswers() {
+  const form = document.forms['quizForm'];
+  let score = 0;
+  let total = 20; // عدد الأسئلة
+  for (let i = 1; i <= total; i++) {
+    let q = form['q'+i];
+    if (!q) continue;
+    for (let ans of q) {
+      if (ans.checked) {
+        score += parseInt(ans.value);
+      }
+    }
+  }
+  document.getElementById('result').innerHTML = 
+    "نتيجتك: " + score + " من " + (total*5);
+}
+</script>
+
+</body>
+</html>

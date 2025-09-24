@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار المحاضرة الأولى - الوابل الصيب</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1a3a1f 0%, #2c5e2e 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2a6b3b 0%, #3a8c4f 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .instructions {
+            background-color: #f0f8f0;
+            padding: 20px;
+            border-bottom: 2px dashed #ccc;
+        }
+        
+        .instructions h3 {
+            color: #2a6b3b;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-right: 20px;
+            margin: 10px 0;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .quiz-container {
+            padding: 20px;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-right: 4px solid #3a8c4f;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-text {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2a6b3b;
+            font-size: 18px;
+        }
+        
+        .options {
+            margin-right: 10px;
+        }
+        
+        .option {
+            display: block;
+            margin-bottom: 12px;
+            padding: 12px 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background: #edf7f0;
+            border-color: #3a8c4f;
+        }
+        
+        .option input {
+            margin-left: 8px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 80%;
+            margin: 30px auto;
+            padding: 16px;
+            background: linear-gradient(135deg, #2a6b3b 0%, #3a8c4f 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-container {
+            display: none;
+            padding: 30px;
+            text-align: center;
+            background: #f0f8f0;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .score {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2a6b3b;
+            margin: 20px 0;
+        }
+        
+        .message {
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .good {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .poor {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .correction {
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        .correction h3 {
+            color: #2a6b3b;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3a8c4f;
+            display: inline-block;
+        }
+        
+        .correction-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-right: 3px solid #3a8c4f;
+        }
+        
+        .correct-answer {
+            color: #2a6b3b;
+            font-weight: 700;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .question {
+                padding: 15px;
+            }
+            
+            .submit-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>اختبار المحاضرة الأولى - الوابل الصيب</h1>
+            <p>اختبر معلوماتك حول محتوى المحاضرة الأولى من كتاب الوابل الصيب</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>تعليمات الاختبار:</h3>
+            <ul>
+                <li>يحتوي الاختبار على 10 أسئلة، لكل سؤال 10 نقاط</li>
+                <li>الإجمالي الكلي للاختبار: 100 نقطة</li>
+                <li>اختر الإجابة الصحيحة لكل سؤال ثم اضغط على زر "تصحيح الاختبار"</li>
+                <li>سيتم عرض نتيجتك وتصحيح الأخطاء مباشرة بعد الإرسال</li>
+            </ul>
+        </div>
+        
+        <form id="quiz-form">
+            <div class="quiz-container">
+                <!-- الأسئلة -->
+                <div class="question">
+                    <div class="question-text">1. ما معنى عنوان الكتاب "الوابل الصيب"؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q0" value="0"> المطر الشديد والخالص من كل شيء</label>
+                        <label class="option"><input type="radio" name="q0" value="1"> الكتاب الجامع والمفيد</label>
+                        <label class="option"><input type="radio" name="q0" value="2"> الذكر الكثير والمستمر</label>
+                        <label class="option"><input type="radio" name="q0" value="3"> العطاء الوفير من العلم النافع</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">2. من هو مؤلف كتاب الوابل الصيب؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="0"> الإمام ابن تيمية</label>
+                        <label class="option"><input type="radio" name="q1" value="1"> الإمام ابن قيم الجوزية</label>
+                        <label class="option"><input type="radio" name="q1" value="2"> الإمام الغزالي</label>
+                        <label class="option"><input type="radio" name="q1" value="3"> الإمام النووي</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">3. ما هي أركان الشكر التي ذكرها ابن القيم؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="0"> الصبر والرضا والتسليم</label>
+                        <label class="option"><input type="radio" name="q2" value="1"> الاعتراف بالنعمة باطناً، والتحدث بها ظاهراً، واستخدامها في الطاعة</label>
+                        <label class="option"><input type="radio" name="q2" value="2"> الدعاء والذكر والصلاة</label>
+                        <label class="option"><input type="radio" name="q2" value="3"> الفرح والسرور وحمد الله</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">4. ما هو تعريف الصبر حسب ما ورد في المحاضرة؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="0"> حبس النفس عن التسخط، وحبس اللسان عن الشكوى، وحبس الجوارح عن المعصية</label>
+                        <label class="option"><input type="radio" name="q3" value="1"> تحمل المشاق والصعوبات</label>
+                        <label class="option"><input type="radio" name="q3" value="2"> الانتظار والترقب للفرج</label>
+                        <label class="option"><input type="radio" name="q3" value="3"> الرضا الكامل بقضاء الله</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">5. ما هي شروط التوبة الصحيحة؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4" value="0"> الندم على ما فات، والإقلاع عن الذنب فوراً، والعزم على عدم العودة</label>
+                        <label class="option"><input type="radio" name="q4" value="1"> الصيام والصدقة والصلاة</label>
+                        <label class="option"><input type="radio" name="q4" value="2"> الاستغفار والدعاء والذكر</label>
+                        <label class="option"><input type="radio" name="q4" value="3"> الاعتراف بالذنب والندم عليه فقط</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">6. ما معنى "التوفيق" حسب تعريف ابن القيم؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5" value="0"> النجاح في الدنيا والآخرة</label>
+                        <label class="option"><input type="radio" name="q5" value="1"> أن لا يكلك الله إلى نفسك</label>
+                        <label class="option"><input type="radio" name="q5" value="2"> تحقيق الأهداف والطموحات</label>
+                        <label class="option"><input type="radio" name="q5" value="3"> السعادة والرضا النفسي</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">7. ما هو أساس استقامة القلب حسب المحاضرة؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6" value="0"> كثرة العبادة والطاعة</label>
+                        <label class="option"><input type="radio" name="q6" value="1"> أن تكون محبة الله تتقدم على جميع المحاب</label>
+                        <label class="option"><input type="radio" name="q6" value="2"> تجنب المعاصي والذنوب</label>
+                        <label class="option"><input type="radio" name="q6" value="3"> الالتزام بالفرائض والنوافل</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">8. ما الذي يفسد الأعمال ويجعلها غير مقبولة؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q7" value="0"> العمل الذي يشوبه الرياء أو يفقد الإخلاص</label>
+                        <label class="option"><input type="radio" name="q7" value="1"> العمل الذي لا يكون على السنة</label>
+                        <label class="option"><input type="radio" name="q7" value="2"> العمل القليل غير المستمر</label>
+                        <label class="option"><input type="radio" name="q7" value="3"> العمل الذي لا يكون بنية صالحة</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">9. كيف تتفاضل الأعمال عند الله حسب ابن القيم؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q8" value="0"> بحسب حجم العمل وكميته</label>
+                        <label class="option"><input type="radio" name="q8" value="1"> بحسب ما في القلوب من الإيمان والإخلاص والمحبة</label>
+                        <label class="option"><input type="radio" name="q8" value="2"> بحسب مكانة العبد ودرجته</label>
+                        <label class="option"><input type="radio" name="q8" value="3"> بحسب الوقت والجهد المبذول في العمل</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">10. ما هي علامات تعظيم الأمر والنهي حسب المحاضرة؟</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q9" value="0"> رعاية الأوامر في أوقاتها والمسارعة إليها والحزن على فواتها</label>
+                        <label class="option"><input type="radio" name="q9" value="1"> كثرة الحديث عنها مع الآخرين</label>
+                        <label class="option"><input type="radio" name="q9" value="2"> كتابتها وحفظها عن ظهر قلب</label>
+                        <label class="option"><input type="radio" name="q9" value="3"> التفكير فيها كثيراً ومناقشتها</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="submit-btn" onclick="calculateScore()">تصحيح الاختبار</button>
+        </form>
+        
+        <div class="result-container" id="result">
+            <h2>نتيجة الاختبار</h2>
+            <p>درجاتك: <span class="score" id="total-score">0</span> من 100</p>
+            <div class="message" id="score-message"></div>
+            
+            <div class="correction">
+                <h3>التصحيح</h3>
+                <div id="correction-container"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>اختبار إلكتروني مبني على المحاضرة الأولى من كتاب "الوابل الصيب" لابن قيم الجوزية</p>
+        </footer>
+    </div>
+
+    <script>
+        // أسئلة الاختبار
+        const questions = [
+            {
+                question: "ما معنى عنوان الكتاب 'الوابل الصيب'؟",
+                options: [
+                    "المطر الشديد والخالص من كل شيء",
+                    "الكتاب الجامع والمفيد",
+                    "الذكر الكثير والمستمر",
+                    "العطاء الوفير من العلم النافع"
+                ],
+                correct: 0,
+                explanation: "الوابل هو المطر الشديد، والصيب هو الخالص من كل شيء، والعنوان يعني العطاء الخالص والخير من الكلم الطيب"
+            },
+            {
+                question: "من هو مؤلف كتاب الوابل الصيب؟",
+                options: [
+                    "الإمام ابن تيمية",
+                    "الإمام ابن قيم الجوزية",
+                    "الإمام الغزالي",
+                    "الإمام النووي"
+                ],
+                correct: 1,
+                explanation: "مؤلف الكتاب هو الإمام ابن قيم الجوزية، وهو شمس الدين أبو عبد الله محمد بن أبي بكر بن أيوب بن سعد الزرعي الدمشقي"
+            },
+            {
+                question: "ما هي أركان الشكر التي ذكرها ابن القيم؟",
+                options: [
+                    "الصبر والرضا والتسليم",
+                    "الاعتراف بالنعمة باطناً، والتحدث بها ظاهراً، واستخدامها في الطاعة",
+                    "الدعاء والذكر والصلاة",
+                    "الفرح والسرور وحمد الله"
+                ],
+                correct: 1,
+                explanation: "أركان الشكر هي: الاعتراف بالنعمة باطناً، والتحدث بها ظاهراً، واستخدامها في طاعة الله تعالى"
+            },
+            {
+                question: "ما هو تعريف الصبر حسب ما ورد في المحاضرة؟",
+                options: [
+                    "حبس النفس عن التسخط، وحبس اللسان عن الشكوى، وحبس الجوارح عن المعصية",
+                    "تحمل المشاق والصعوبات",
+                    "الانتظار والترقب للفرج",
+                    "الرضا الكامل بقضاء الله"
+                ],
+                correct: 0,
+                explanation: "الصبر هو: حبس النفس عن التسخط بالمقدور، وحبس اللسان عن الشكوى، وحبس الجوارح عن المعصية"
+            },
+            {
+                question: "ما هي شروط التوبة الصحيحة؟",
+                options: [
+                    "الندم على ما فات، والإقلاع عن الذنب فوراً، والعزم على عدم العودة",
+                    "الصيام والصدقة والصلاة",
+                    "الاستغفار والدعاء والذكر",
+                    "الاعتراف بالذنب والندم عليه فقط"
+                ],
+                correct: 0,
+                explanation: "شروط التوبة هي: الندم على ما فات، والإقلاع عن الذنب فوراً، والعزم على عدم العودة إلى الذنب أبداً"
+            },
+            {
+                question: "ما معنى 'التوفيق' حسب تعريف ابن القيم؟",
+                options: [
+                    "النجاح في الدنيا والآخرة",
+                    "أن لا يكلك الله إلى نفسك",
+                    "تحقيق الأهداف والطموحات",
+                    "السعادة والرضا النفسي"
+                ],
+                correct: 1,
+                explanation: "التوفيق هو أن لا يكلك الله تعالى إلى نفسك، بينما الخذلان هو أن يكلك الله إلى نفسك"
+            },
+            {
+                question: "ما هو أساس استقامة القلب حسب المحاضرة؟",
+                options: [
+                    "كثرة العبادة والطاعة",
+                    "أن تكون محبة الله تتقدم على جميع المحاب",
+                    "تجنب المعاصي والذنوب",
+                    "الالتزام بالفرائض والنوافل"
+                ],
+                correct: 1,
+                explanation: "أساس استقامة القلب هو أن تكون محبة الله تتقدم على جميع المحاب، فإذا تعارض حب الله وحب غيره، يسبق حب الله"
+            },
+            {
+                question: "ما الذي يفسد الأعمال ويجعلها غير مقبولة؟",
+                options: [
+                    "العمل الذي يشوبه الرياء أو يفقد الإخلاص",
+                    "العمل الذي لا يكون على السنة",
+                    "العمل القليل غير المستمر",
+                    "العمل الذي لا يكون بنية صالحة"
+                ],
+                correct: 0,
+                explanation: "العمل الذي يشوبه الرياء أو يفقد الإخلاص لا يكفر الذنوب، والعمل الذي يؤديه العبد للعجب أو طلب تعظيم الناس لا يكفر عنه شيئاً"
+            },
+            {
+                question: "كيف تتفاضل الأعمال عند الله حسب ابن القيم؟",
+                options: [
+                    "بحسب حجم العمل وكميته",
+                    "بحسب ما في القلوب من الإيمان والإخلاص والمحبة",
+                    "بحسب مكانة العبد ودرجته",
+                    "بحسب الوقت والجهد المبذول في العمل"
+                ],
+                correct: 1,
+                explanation: "تتفاضل الأعمال عند الله يتفاضل ما في القلوب من الإيمان والإخلاص والمحبة"
+            },
+            {
+                question: "ما هي علامات تعظيم الأمر والنهي حسب المحاضرة؟",
+                options: [
+                    "رعاية الأوامر في أوقاتها والمسارعة إليها والحزن على فواتها",
+                    "كثرة الحديث عنها مع الآخرين",
+                    "كتابتها وحفظها عن ظهر قلب",
+                    "التفكير فيها كثيراً ومناقشتها"
+                ],
+                correct: 0,
+                explanation: "من علامات تعظيم الأمر والنهي: رعاية الأوامر في أوقاتها، والمسارعة إليها، والحزن والكآبة والأسف عند فوت حق من حقوقها"
+            }
+        ];
+
+        // دالة حساب النتيجة
+        function calculateScore() {
+            let score = 0;
+            const correctionContainer = document.getElementById('correction-container');
+            correctionContainer.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const userAnswer = selectedOption ? parseInt(selectedOption.value) : -1;
+                
+                if (userAnswer === q.correct) {
+                    score += 10;
+                } else {
+                    // إضافة التصحيح للأسئلة الخاطئة
+                    const correctionItem = document.createElement('div');
+                    correctionItem.className = 'correction-item';
+                    
+                    let correctOptionText = q.options[q.correct];
+                    
+                    correctionItem.innerHTML = `
+                        <p><strong>السؤال ${index + 1}:</strong> ${q.question}</p>
+                        <p class="correct-answer">الإجابة الصحيحة: ${correctOptionText}</p>
+                        <p>${q.explanation}</p>
+                    `;
+                    
+                    correctionContainer.appendChild(correctionItem);
+                }
+            });
+            
+            displayResults(score);
+        }
+
+        // دالة عرض النتائج
+        function displayResults(score) {
+            const totalScore = document.getElementById('total-score');
+            const scoreMessage = document.getElementById('score-message');
+            const resultDiv = document.getElementById('result');
+            
+            totalScore.textContent = score;
+            
+            // تحديد الرسالة حسب الدرجة
+            if (score >= 90) {
+                scoreMessage.textContent = 'ممتاز! لديك فهم رائع للمحاضرة الأولى من كتاب الوابل الصيب.';
+                scoreMessage.className = 'message excellent';
+            } else if (score >= 70) {
+                scoreMessage.textContent = 'جيد جداً! لديك معرفة جيدة بالمحاضرة ولكن يمكنك تحسينها أكثر.';
+                scoreMessage.className = 'message good';
+            } else if (score >= 50) {
+                scoreMessage.textContent = 'مقبول! تحتاج إلى مراجعة المحاضرة مرة أخرى.';
+                scoreMessage.className = 'message';
+            } else {
+                scoreMessage.textContent = 'ضعيف! ينبغي عليك دراسة المحاضرة بعناية أكبر.';
+                scoreMessage.className = 'message poor';
+            }
+            
+            resultDiv.style.display = 'block';
+            
+            // التمرير إلى نتائج الاختبار
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار في تفسير الأدلة من الكتاب والسنة - فتح المجيد</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            background: linear-gradient(135deg, #f9f9f9 0%, #e6f4e6 100%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2c5e2e;
+        }
+        h1 {
+            color: #2c5e2e;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: #555;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        .question:hover {
+            box-shadow: 0 0 10px rgba(44, 94, 46, 0.2);
+        }
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c5e2e;
+            font-size: 18px;
+        }
+        .options {
+            margin-right: 20px;
+        }
+        .option {
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #e8f4e8;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4e8;
+            border-radius: 8px;
+            display: none;
+            border-right: 4px solid #2c5e2e;
+        }
+        .submit-btn {
+            display: block;
+            width: 220px;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: #2c5e2e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #224b23;
+            transform: scale(1.05);
+        }
+        .result {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            background-color: #e8f4e8;
+        }
+        .show-explanation {
+            background: none;
+            border: none;
+            color: #2c5e2e;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+        .score-details {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .verse {
+            background-color: #f0f7f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 3px solid #2c5e2e;
+            font-style: italic;
+        }
+        input[type="radio"] {
+            margin-left: 10px;
+            transform: scale(1.2);
+        }
+        .correct {
+            color: #2c5e2e;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>اختبار في تفسير الأدلة من الكتاب والسنة</h1>
+            <h2>باب طاعة العلماء والأمراء من كتاب فتح المجيد</h2>
+            <p class="description">اختر الإجابة الصحيحة لكل سؤال (كل سؤال يحمل 10 نقاط)</p>
+        </div>
+        
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <div class="question-title">1. ما تفسير قوله تعالى: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ"؟</div>
+                <div class="verse">"يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ" (النساء: 59)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q1" value="a"> أ. وجوب طاعة ولي الأمر في كل شيء</div>
+                    <div class="option"><input type="radio" name="q1" value="b"> ب. طاعة ولي الأمر تابعة لطاعة الله ورسوله</div>
+                    <div class="option"><input type="radio" name="q1" value="c"> ج. طاعة ولي الأمر مستقلة عن طاعة الله ورسوله</div>
+                    <div class="option"><input type="radio" name="q1" value="d"> د. طاعة ولي الأمر في الأمور الدنيوية فقط</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ب. طاعة ولي الأمر تابعة لطاعة الله ورسوله</span><br><br>
+                    <strong>التوضيح:</strong> الآية تدل على أن طاعة أولي الأمر (العلماء والأمراء) مقيدة بعدم معصية الله ورسوله، فهي تابعة لطاعة الله ورسوله وليست مستقلة. وقد ذكر الشيخ عبد الرحمن بن حسن في "فتح المجيد" أن طاعتهم تابعة لطاعة الله ورسوله، ولا طاعة لمخلوق في معصية الخالق.
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question">
+                <div class="question-title">2. ما معنى قوله صلى الله عليه وسلم: "على المرء المسلم السمع والطاعة فيما أحب وكره"؟</div>
+                <div class="verse">"على المرء المسلم السمع والطاعة فيما أحب وكره، إلا أن يؤمر بمعصية، فإن أمر بمعصية فلا سمع ولا طاعة" (رواه البخاري ومسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q2" value="a"> أ. الطاعة المطلقة للحاكم في جميع الأحوال</div>
+                    <div class="option"><input type="radio" name="q2" value="b"> ب. الطاعة في الرخاء دون الشدة</div>
+                    <div class="option"><input type="radio" name="q2" value="c"> ج. الطاعة في المعروف حتى وإن كان ضد هوى الشخص</div>
+                    <div class="option"><input type="radio" name="q2" value="d"> د. الطاعة في الأمور المحببة فقط</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ج. الطاعة في المعروف حتى وإن كان ضد هوى الشخص</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على وجوب طاعة ولي الأمر في المعروف، سواء كان ذلك موافقاً لهوى الشخص أو غير موافق، ما لم يأمر بمعصية. وهذا من ضوابط الطاعة الواجبة للأمراء التي ذكرها العلماء في كتاب "فتح المجيد".
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question">
+                <div class="question-title">3. ما تفسير قوله صلى الله عليه وسلم: "من أطاعني فقد أطاع الله، ومن عصاني فقد عصى الله، ومن يطع الأمير فقد أطاعني، ومن يعص الأمير فقد عصاني"؟</div>
+                <div class="verse">"من أطاعني فقد أطاع الله، ومن عصاني فقد عصى الله، ومن يطع الأمير فقد أطاعني، ومن يعص الأمير فقد عصاني" (رواه البخاري)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q3" value="a"> أ. طاعة الأمير كطاعة النبي مطلقاً</div>
+                    <div class="option"><input type="radio" name="q3" value="b"> ب. طاعة الأمير في المعروف كطاعة النبي</div>
+                    <div class="option"><input type="radio" name="q3" value="c"> ج. عصيان الأمير كعصيان النبي في جميع الأحوال</div>
+                    <div class="option"><input type="radio" name="q3" value="d"> د. طاعة الأمير واجبة حتى في المعصية</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ب. طاعة الأمير في المعروف كطاعة النبي</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على أن طاعة ولي الأمر في المعروف من طاعة الله ورسوله، وعصيانه في المعروف من عصيان الله ورسوله. لكن هذه الطاعة مقيدة بعدم الأمر بمعصية، كما بينت ذلك الأحاديث الأخرى. وقد أوضح العلماء في "فتح المجيد" أن هذا في الطاعة في المعروف لا في المعصية.
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question">
+                <div class="question-title">4. ما معنى قوله صلى الله عليه وسلم: "إنما الطاعة في المعروف"؟</div>
+                <div class="verse">"إنما الطاعة في المعروف" (رواه البخاري ومسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q4" value="a"> أ. أن الطاعة تكون في الأمور المعروفة فقط</div>
+                    <div class="option"><input type="radio" name="q4" value="b"> ب. أن الطاعة تكون في المعروف دون المنكر</div>
+                    <div class="option"><input type="radio" name="q4" value="c"> ج. أن الطاعة تكون للمعروفين من الناس</div>
+                    <div class="option"><input type="radio" name="q4" value="d"> د. أن الطاعة تكون في الأمور المشهورة</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ب. أن الطاعة تكون في المعروف دون المنكر</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على أن طاعة ولي الأمر مقيدة بالمعروف، وهو ما عرف حسنه شرعاً وعقلاً، فلا طاعة له في أمرٍ يكون منكراً (معصية). وهذا أصل مهم في باب الطاعة ذكرته كتب العقيدة ومنها "فتح المجيد".
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question">
+                <div class="question-title">5. ما تفسير قوله صلى الله عليه وسلم: "ستكون أمراء فتعرفون وتنكرون، فمن عرف برئ، ومن أنكر سلم، ولكن من رضي وتابع"؟</div>
+                <div class="verse">"ستكون أمراء فتعرفون وتنكرون، فمن عرف برئ، ومن أنكر سلم، ولكن من رضي وتابع" (رواه مسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q5" value="a"> أ. وجوب الخروج على الأمراء إذا فعلوا المنكر</div>
+                    <div class="option"><input type="radio" name="q5" value="b"> ب. وجوب الإنكار باليد على الأمراء</div>
+                    <div class="option"><input type="radio" name="q5" value="c"> ج. البراءة من المنكر وعدم الرضا به مع عدم الخروج</div>
+                    <div class="option"><input type="radio" name="q5" value="d"> د. وجوب طاعة الأمراء حتى في المنكر</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ج. البراءة من المنكر وعدم الرضا به مع عدم الخروج</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على أن المسلم إذا رأى من الأمراء ما ينكره، فإنه يجب عليه أن ينكره بقلبه ولا يرضى به، لكن مع عدم الخروج عليهم. وهذا من أسس التعامل مع الأمراء التي بينها العلماء في "فتح المجيد" وغيره.
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="question">
+                <div class="question-title">6. ما معنى قوله صلى الله عليه وسلم: "من كره من أميره شيئاً فليصبر، فإنه من خرج من السلطان شبراً مات ميتة جاهلية"؟</div>
+                <div class="verse">"من كره من أميره شيئاً فليصبر، فإنه من خرج من السلطان شبراً مات ميتة جاهلية" (رواه البخاري ومسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q6" value="a"> أ. تحريم الخروج على الحاكم ولو كان ظالماً</div>
+                    <div class="option"><input type="radio" name="q6" value="b"> ب. وجوب الصبر على حكم الظالم</div>
+                    <div class="option"><input type="radio" name="q6" value="c"> ج. أن الخروج على الحاكم كفر</div>
+                    <div class="option"><input type="radio" name="q6" value="d"> د. جميع ما سبق</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: د. جميع ما سبق</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على تحريم الخروج على الحاكم المسلم، وأن من خرج عليه فقد ارتكب ذنباً عظيماً، وأن الواجب الصبر على ظلمه وجوره، وعدم الخروج عليه. وهذا ما قرره أهل السنة والجماعة واستدلوا به على تحريم الخروج على الحكام، كما في "فتح المجيد".
+                </div>
+            </div>
+            
+            <!-- Question 7 -->
+            <div class="question">
+                <div class="question-title">7. ما تفسير قوله صلى الله عليه وسلم: "ألا من ولي عليه وال فرآه يأتي شيئاً من معصية الله فليكره ما يأتي من معصية الله، ولا ينزعن يداً من طاعة"؟</div>
+                <div class="verse">"ألا من ولي عليه وال فرآه يأتي شيئاً من معصية الله فليكره ما يأتي من معصية الله، ولا ينزعن يداً من طاعة" (رواه مسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q7" value="a"> أ. وجوب الإنكار على الوالي ومعصيته</div>
+                    <div class="option"><input type="radio" name="q7" value="b"> ب. كراهية معصية الوالي مع continued طاعته في المعروف</div>
+                    <div class="option"><input type="radio" name="q7" value="c"> ج. وجوب الخروج على الوالي إذا عصى</div>
+                    <div class="option"><input type="radio" name="q7" value="d"> د. طاعة الوالي حتى في المعصية</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: ب. كراهية معصية الوالي مع continued طاعته في المعروف</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على أن المسلم إذا رأى من وليه معصية، فإنه يجب عليه أن يكره هذه المعصية وينكرها بقلبه، لكن مع continued طاعته في المعروف وعدم الخروج عليه. وهذا من قواعد أهل السنة والجماعة في التعامل với الأمراء.
+                </div>
+            </div>
+            
+            <!-- Question 8 -->
+            <div class="question">
+                <div class="question-title">8. ما معنى قوله صلى الله عليه وسلم: "خيار أئمتكم الذين تحبونهم ويحبونكم، وتصلون عليهم ويصلون عليكم، وشرار أئمتكم الذين تبغضونهم ويبغضونكم، وتلعنونهم ويلعنونكم"؟</div>
+                <div class="verse">"خيار أئمتكم الذين تحبونهم ويحبونكم، وتصلون عليهم ويصلون عليكم، وشرار أئمتكم الذين تبغضونهم ويبغضونكم، وتلعنونهم ويلعنونكم" (رواه مسلم)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q8" value="a"> أ. وجوب محبة جميع الأمراء</div>
+                    <div class="option"><input type="radio" name="q8" value="b"> ب. أن الأئمة ينقسمون إلى خيار وشرار</div>
+                    <div class="option"><input type="radio" name="q8" value="c"> ج. أن الخيار هم المحبوبون والشرار هم المبغضون</div>
+                    <div class="option"><input type="radio" name="q8" value="d"> د. ب و ج معاً</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: د. ب و ج معاً</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على أن الأمراء ينقسمون إلى خيار وشرار، وأن الخيار هم المحبوبون من الرعية المحبون لهم، والشرار هم المبغضون المبغضين للرعية. وهذا يبين أن وجود الأمراء الصالحين والفاسدين واقع لا محالة، لكن الواجب الصبر وعدم الخروج عليهم.
+                </div>
+            </div>
+            
+            <!-- Question 9 -->
+            <div class="question">
+                <div class="question-title">9. ما تفسير قوله صلى الله عليه وسلم: "إنكم ستحرصون على الإمارة، وستكون ندامة يوم القيامة"؟</div>
+                <div class="verse">"إنكم ستحرصون على الإمارة، وستكون ندامة يوم القيامة" (رواه البخاري)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q9" value="a"> أ. تحريم طلب الإمارة</div>
+                    <div class="option"><input type="radio" name="q9" value="b"> ب. أن الإمارة مسئولية وتبعة</div>
+                    <div class="option"><input type="radio" name="q9" value="c"> ج. أن من طلب الإمارة ندم يوم القيامة</div>
+                    <div class="option"><input type="radio" name="q9" value="d"> د. جميع ما سبق</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: د. جميع ما سبق</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على تحريم طلب الإمارة والحرص عليها، لأنها مسئولية وتبعة، ومن طلبها ندم يوم القيامة لما يترتب عليها من المحاسبة. وهذا تحذير من التطلع إلى المناصب والحرص عليها.
+                </div>
+            </div>
+            
+            <!-- Question 10 -->
+            <div class="question">
+                <div class="question-title">10. ما معنى قوله صلى الله عليه وسلم: "ما منع قوم الزكاة إلا حبس عنهم القطر"؟</div>
+                <div class="verse">"ما منع قوم الزكاة إلا حبس عنهم القطر" (رواه ابن ماجة)</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q10" value="a"> أ. تحريم منع الزكاة</div>
+                    <div class="option"><input type="radio" name="q10" value="b"> ب. أن منع الزكاة سبب لحبس المطر</div>
+                    <div class="option"><input type="radio" name="q10" value="c"> ج. أن الحكام إذا منعوا الزكاة عاقبهم الله</div>
+                    <div class="option"><input type="radio" name="q10" value="d"> د. جميع ما سبق</div>
+                </div>
+                <button type="button" class="show-explanation">إظهار التصحيح</button>
+                <div class="explanation">
+                    <span class="correct">الإجابة الصحيحة: د. جميع ما سبق</span><br><br>
+                    <strong>التوضيح:</strong> الحديث يدل على تحريم منع الزكاة، وأن منعها سبب لحبس المطر عن البلاد، وأن الحكام إذا منعوا الزكاة أو فرضوا على الرعية ما يمنعهم من إخراجها، فإنهم يعاقبون بحبس المطر عنهم. وهذا من الأدلة على أن المعاصي سبب لنزول العقوبات.
+                </div>
+            </div>
+            
+            <button type="button" class="submit-btn" onclick="calculateScore()">تصحيح الإجابات</button>
+        </form>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // الإجابات الصحيحة
+        const correctAnswers = {
+            q1: "b",
+            q2: "c",
+            q3: "b",
+            q4: "b",
+            q5: "c",
+            q6: "d",
+            q7: "b",
+            q8: "d",
+            q9: "d",
+            q10: "d"
+        };
+        
+        // إظهار/إخفاء التوضيح
+        const explanationButtons = document.querySelectorAll('.show-explanation');
+        explanationButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const explanation = this.nextElementSibling;
+                if (explanation.style.display === 'block') {
+                    explanation.style.display = 'none';
+                    this.textContent = 'إظهار التصحيح';
+                } else {
+                    explanation.style.display = 'block';
+                    this.textContent = 'إخفاء التصحيح';
+                }
+            });
+        });
+        
+        // حساب النتيجة
+        function calculateScore() {
+            let score = 0;
+            let allAnswered = true;
+            
+            for (let i = 1; i <= 10; i++) {
+                const questionName = 'q' + i;
+                const selectedOption = document.querySelector(`input[name=${questionName}]:checked`);
+                
+                if (!selectedOption) {
+                    allAnswered = false;
+                    alert('يرجى الإجابة على جميع الأسئلة');
+                    return;
+                }
+                
+                if (selectedOption.value === correctAnswers[questionName]) {
+                    score += 10;
+                }
+            }
+            
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `نتيجتك: ${score} من 100`;
+            resultElement.style.display = 'block';
+            
+            // إظهار جميع التوضيحات بعد التصحيح
+            document.querySelectorAll('.explanation').forEach(el => {
+                el.style.display = 'block';
+            });
+            
+            document.querySelectorAll('.show-explanation').forEach(el => {
+                el.textContent = 'إخفاء التصحيح';
+            });
+            
+            // Scroll to results
+            resultElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار السعادة بثلاث: شكر النعمة، الصبر على البلاء، التوبة من الذنب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #2c5e2e 0%, #428745 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #1e3e20;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .exam-info {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f0f7f0;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .info-item {
+            text-align: center;
+        }
+        .info-item i {
+            font-size: 1.5rem;
+            color: #2c5e2e;
+            margin-bottom: 5px;
+        }
+        .form-container {
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        .question-number {
+            font-weight: bold;
+            color: #2c5e2e;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f7f0;
+        }
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .options {
+            margin-right: 20px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #f9f9f9;
+            border-color: #c0c0c0;
+        }
+        .option input {
+            margin-left: 10px;
+        }
+        .option label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #2c5e2e 0%, #428745 100%);
+            color: white;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #255827 0%, #38733b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .reset-btn {
+            background: #f5f5f5;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+        .reset-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f0f7f0;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #2c5e2e;
+        }
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5e2e;
+            margin: 15px 0;
+        }
+        .message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .correction {
+            margin-top: 30px;
+            text-align: right;
+        }
+        .answer {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-right: 3px solid #2c5e2e;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .correct {
+            color: #2c5e2e;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #d32f2f;
+        }
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f7f0;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .exam-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>اختبار السعادة بثلاث: شكر النعمة، الصبر على البلاء، التوبة من الذنب</h1>
+            <p class="description">اختبار شامل لقياس فهمك لموضوع السعادة بثلاث أركان أساسية</p>
+        </header>
+        
+        <div class="exam-info">
+            <div class="info-item">
+                <i class="fas fa-question-circle"></i>
+                <div>20 سؤال</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-star"></i>
+                <div>5 نقاط لكل سؤال</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div>30 دقيقة</div>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <form id="examForm">
+                <!-- السؤال 1 -->
+                <div class="question">
+                    <div class="question-number">السؤال 1: ما هي أركان السعادة الثلاثة حسب الموضوع؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q1" value="a" id="q1a">
+                            <label for="q1a">أ) شكر النعمة، الصبر على البلاء، التوبة من الذنب</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" value="b" id="q1b">
+                            <label for="q1b">ب) الصلاة، الصوم، الزكاة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" value="c" id="q1c">
+                            <label for="q1c">ج) الصدق، الأمانة، البر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" value="d" id="q1d">
+                            <label for="q1d">د) العلم، العمل، الدعوة</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 2 -->
+                <div class="question">
+                    <div class="question-number">السؤال 2: ما هي أركان الشكر الثلاثة؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q2" value="a" id="q2a">
+                            <label for="q2a">أ) الاعتراف بالنعمة باطناً، التحدث بها ظاهراً، تصريفها في مرضاة الله</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="b" id="q2b">
+                            <label for="q2b">ب) الصلاة، الصوم، الدعاء</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="c" id="q2c">
+                            <label for="q2c">ج) الحمد، الثناء، الشكر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" value="d" id="q2d">
+                            <label for="q2d">د) الذكر، التسبيح، الاستغفار</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 3 -->
+                <div class="question">
+                    <div class="question-number">السؤال 3: ما هي أركان الصبر الثلاثة؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q3" value="a" id="q3a">
+                            <label for="q3a">أ) حبس النفس عن التسخط، حبس اللسان عن الشكوى، حبس الجوارح عن المعصية</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" value="b" id="q3b">
+                            <label for="q3b">ب) الصلاة، الصوم، الذكر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" value="c" id="q3c">
+                            <label for="q3c">ج) الصمت، الجلوس، الانتظار</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" value="d" id="q3d">
+                            <label for="q3d">د) الكتمان، الصبر، الرضا</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 4 -->
+                <div class="question">
+                    <div class="question-number">السؤال 4: ماذا تنتج محنة البلاء عند الصبر عليها؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q4" value="a" id="q4a">
+                            <label for="q4a">أ) تتحول إلى منحة وعطية</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" value="b" id="q4b">
+                            <label for="q4b">ب) تزيد المصيبة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" value="c" id="q4c">
+                            <label for="q4c">ج) تبقى كما هي</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" value="d" id="q4d">
+                            <label for="q4d">د) تزول سريعاً</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 5 -->
+                <div class="question">
+                    <div class="question-number">السؤال 5: ما هو "سيد الاستغفار" حسب الحديث النبوي؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q5" value="a" id="q5a">
+                            <label for="q5a">أ) اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك...</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" value="b" id="q5b">
+                            <label for="q5b">ب) أستغفر الله العظيم الذي لا إله إلا هو الحي القيوم وأتوب إليه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" value="c" id="q5c">
+                            <label for="q5c">ج) رب اغفر لي وتب علي إنك أنت التواب الرحيم</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" value="d" id="q5d">
+                            <label for="q5d">د) لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 6 -->
+                <div class="question">
+                    <div class="question-number">السؤال 6: ما معنى قول السلف: "إن العبد ليعمل الذنب يدخل به الجنة"؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q6" value="a" id="q6a">
+                            <label for="q6a">أ) أن الذنب قد يدفع العبد للتوبة والندم والانكسار لله</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q6" value="b" id="q6b">
+                            <label for="q6b">ب) أن بعض الذنوب مغفورة ولا تؤثر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q6" value="c" id="q6c">
+                            <label for="q6c">ج) أن الله لا يحاسب على الذنوب الصغيرة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q6" value="d" id="q6d">
+                            <label for="q6d">د) أن الذنوب تمحى بالأعمال الصالحة</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 7 -->
+                <div class="question">
+                    <div class="question-number">السؤال 7: ما هو الفرق بين عبودية السراء وعبودية الضراء؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q7" value="a" id="q7a">
+                            <label for="q7a">أ) عبودية الضراء أعلى درجة لتفاوت مراتب العباد فيها</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q7" value="b" id="q7b">
+                            <label for="q7b">ب) لا فرق بينهما</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q7" value="c" id="q7c">
+                            <label for="q7c">ج) عبودية السراء أفضل لأنها تكون في حالة القوة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q7" value="d" id="q7d">
+                            <label for="q7d">د) عبودية الضراء أسهل لأن الإنسان يكون مضطراً</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 8 -->
+                <div class="question">
+                    <div class="question-number">السؤال 8: ما معنى "التوفيق" و"الخذلان" حسب التعريف الوارد؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q8" value="a" id="q8a">
+                            <label for="q8a">أ) التوفيق: أن لا يكلك الله إلى نفسك، الخذلان: أن يكلك الله إلى نفسك</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q8" value="b" id="q8b">
+                            <label for="q8b">ب) التوفيق: النجاح في الدنيا، الخذلان: الفشل في الدنيا</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q8" value="c" id="q8c">
+                            <label for="q8c">ج) التوفيق: الرزق الوفير، الخذلان: الفقر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q8" value="d" id="q8d">
+                            <label for="q8d">د) التوفيق: الصحة والعافية، الخذلان: المرض</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 9 -->
+                <div class="question">
+                    <div class="question-number">السؤال 9: ما هي الأجنحة التي يسير بها العارف إلى الله؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q9" value="a" id="q9a">
+                            <label for="q9a">أ) مشاهدة المنة ومطالعة عيب النفس</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q9" value="b" id="q9b">
+                            <label for="q9b">ب) الصلاة والصوم</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q9" value="c" id="q9c">
+                            <label for="q9c">ج) العلم والعمل</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q9" value="d" id="q9d">
+                            <label for="q9d">د) الدعاء والذكر</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 10 -->
+                <div class="question">
+                    <div class="question-number">السؤال 10: ما هو أقرب باب يدخل منه العبد على الله؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q10" value="a" id="q10a">
+                            <label for="q10a">أ) الإفلاس والافتقار</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q10" value="b" id="q10b">
+                            <label for="q10b">ب) العلم والمعرفة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q10" value="c" id="q10c">
+                            <label for="q10c">ج) الصلاة والعبادة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q10" value="d" id="q10d">
+                            <label for="q10d">د) الدعاء والمناجاة</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 11 -->
+                <div class="question">
+                    <div class="question-number">السؤال 11: ما معنى "أبوب بنعمتك علي" في سيد الاستغفار؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q11" value="a" id="q11a">
+                            <label for="q11a">أ) الاعتراف بالنعمة والإقرار بها</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q11" value="b" id="q11b">
+                            <label for="q11b">ب) طلب المزيد من النعم</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q11" value="c" id="q11c">
+                            <label for="q11c">ج) الشكر على النعم</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q11" value="d" id="q11d">
+                            <label for="q11d">د) التحدث بالنعم</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 12 -->
+                <div class="question">
+                    <div class="question-number">السؤال 12: ما هو سبب ابتلاء الله للعبد بالمحن؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q12" value="a" id="q12a">
+                            <label for="q12a">أ) ليمتحن صبره وعبوديته</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q12" value="b" id="q12b">
+                            <label for="q12b">ب) لعقاب العبد على ذنوبه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q12" value="c" id="q12c">
+                            <label for="q12c">ج) لأن الله لا يحب العبد</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q12" value="d" id="q12d">
+                            <label for="q12d">د) ليزيد العبد من الدعاء</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 13 -->
+                <div class="question">
+                    <div class="question-number">السؤال 13: ما معنى قوله تعالى: "أليس الله بكاف عبده"؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q13" value="a" id="q13a">
+                            <label for="q13a">أ) أن الله يكفي عبده المؤمن ويحميه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q13" value="b" id="q13b">
+                            <label for="q13b">ب) أن الله يعطي العبد ما يكفيه من الرزق</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q13" value="c" id="q13c">
+                            <label for="q13c">ج) أن الله يعاقب العبد الكافر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q13" value="d" id="q13d">
+                            <label for="q13d">د) أن الله يحاسب العبد على أعماله</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 14 -->
+                <div class="question">
+                    <div class="question-number">السؤال 14: ما هي حال العبد عندما يرى فضل ربه وإحسانه؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q14" value="a" id="q14a">
+                            <label for="q14a">أ) يشعر بالمحبة والحمد والشكر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q14" value="b" id="q14b">
+                            <label for="q14b">ب) يشعر بالعجب والكبر</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q14" value="c" id="q14c">
+                            <label for="q14c">ج) يشعر بالخوف والرهبة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q14" value="d" id="q14d">
+                            <label for="q14d">د) يشعر بالضعف والعجز</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 15 -->
+                <div class="question">
+                    <div class="question-number">السؤال 15: ما هي حال العبد عندما يرى عيوب نفسه؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q15" value="a" id="q15a">
+                            <label for="q15a">أ) يشعر بالذل والانكسار والافتقار</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q15" value="b" id="q15b">
+                            <label for="q15b">ب) يشعر باليأس والقنوط</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q15" value="c" id="q15c">
+                            <label for="q15c">ج) يشعر بالغضب من نفسه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q15" value="d" id="q15d">
+                            <label for="q15d">د) يشعر بالحزن الشديد</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 16 -->
+                <div class="question">
+                    <div class="question-number">السؤال 16: ما هي أبواب دخول إبليس على العبد؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q16" value="a" id="q16a">
+                            <label for="q16a">أ) الغفلة، الشهوة، الغضب</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q16" value="b" id="q16b">
+                            <label for="q16b">ب) الجهل، الكسل، الغرور</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q16" value="c" id="q16c">
+                            <label for="q16c">ج) الفقر، المرض، الجوع</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q16" value="d" id="q16d">
+                            <label for="q16d">د) الوحدة، الخوف، القلق</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 17 -->
+                <div class="question">
+                    <div class="question-number">السؤال 17: ما هو سبب تفاوت مراتب العباد عند الله؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q17" value="a" id="q17a">
+                            <label for="q17a">أ) تفاوتهم في إعطاء العبودية في المكاره</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q17" value="b" id="q17b">
+                            <label for="q17b">ب) تفاوتهم في العلم والمعرفة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q17" value="c" id="q17c">
+                            <label for="q17c">ج) تفاوتهم في الصلاة والصوم</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q17" value="d" id="q17d">
+                            <label for="q17d">د) تفاوتهم في الدعوة والدعاء</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 18 -->
+                <div class="question">
+                    <div class="question-number">السؤال 18: ما هو الفرق بين العبودية في المحبوب والعبودية في المكروه؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q18" value="a" id="q18a">
+                            <label for="q18a">أ) العبودية في المكروه أعلى درجة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q18" value="b" id="q18b">
+                            <label for="q18b">ب) العبودية في المحبوب أعلى درجة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q18" value="c" id="q18c">
+                            <label for="q18c">ج) لا فرق بينهما</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q18" value="d" id="q18d">
+                            <label for="q18d">د) العبودية في المكروه أسهل</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 19 -->
+                <div class="question">
+                    <div class="question-number">السؤال 19: ما معنى قوله: "العارف يسير إلى الله بين مشاهدة المنة ومطالعة عيب النفس"؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q19" value="a" id="q19a">
+                            <label for="q19a">أ) يجمع بين الشكر على النعم والاستغفار من الذنوب</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q19" value="b" id="q19b">
+                            <label for="q19b">ب) يتفكر في نعم الله ثم في ذنوبه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q19" value="c" id="q19c">
+                            <label for="q19c">ج) يشكر الله ويحاسب نفسه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q19" value="d" id="q19d">
+                            <label for="q19d">د) جميع ما سبق</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- السؤال 20 -->
+                <div class="question">
+                    <div class="question-number">السؤال 20: ما هو حال العبد عندما يذنب ثم يتوب؟</div>
+                    <div class="question-text">اختر الإجابة الصحيحة من الخيارات التالية:</div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q20" value="a" id="q20a">
+                            <label for="q20a">أ) يصبح الذنب سبباً في رحمة الله ودخوله الجنة</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q20" value="b" id="q20b">
+                            <label for="q20b">ب) يغفر الله له ولكن يبقى أثر الذنب</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q20" value="c" id="q20c">
+                            <label for="q20c">ج) يتخلص من الذنب ولكن يعاقب عليه</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q20" value="d" id="q20d">
+                            <label for="q20d">د) ينسى الذنب ولا يتذكره</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button type="button" class="submit-btn" onclick="calculateScore()">
+                        <i class="fas fa-check-circle"></i> تصحيح الإجابات
+                    </button>
+                    <button type="reset" class="reset-btn">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                </div>
+            </form>
+            
+            <div class="result" id="result">
+                <h2>نتيجة الاختبار</h2>
+                <div class="score">درجتك: <span id="score"></span> من 100</div>
+                <p class="message" id="message"></p>
+                
+                <div class="correction" id="correction">
+                    <!-- سيتم إضافة التصحيح هنا عبر JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // الإجابات الصحيحة
+        const correctAnswers = {
+            q1: "a",
+            q2: "a",
+            q3: "a",
+            q4: "a",
+            q5: "a",
+            q6: "a",
+            q7: "a",
+            q8: "a",
+            q9: "a",
+            q10: "a",
+            q11: "a",
+            q12: "a",
+            q13: "a",
+            q14: "a",
+            q15: "a",
+            q16: "a",
+            q17: "a",
+            q18: "a",
+            q19: "d",
+            q20: "a"
+        };
+        
+        // شرح الإجابات
+        const answerExplanations = {
+            q1: "أركان السعادة الثلاثة هي: شكر النعمة، الصبر على البلاء، التوبة من الذنب. وهي أساس سعادة العبد في الدنيا والآخرة.",
+            q2: "أركان الشكر ثلاثة: الاعتراف بالنعمة باطناً، التحدث بها ظاهراً، تصريفها في مرضاة الله تعالى.",
+            q3: "أركان الصبر ثلاثة: حبس النفس عن التسخط، حبس اللسان عن الشكوى، حبس الجوارح عن المعصية.",
+            q4: "عند الصبر على البلاء تتحول المحنة إلى منحة والعطية، ويصير المكروه محبوباً.",
+            q5: "سيد الاستغفار هو: اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء بنعمتك علي وأبوء بذنبي، فاغفر لي، إنه لا يغفر الذنوب إلا أنت.",
+            q6: "الذنب قد يدفع العبد للتوبة والندم والانكسار لله، فيصبح هذا الذنب سبباً في سعادته وفلاحه.",
+            q7: "عبودية الضراء أعلى درجة لأنها تظهر تفاوت مراتب العباد، فالشأن في إعطاء العبودية في المكاره.",
+            q8: "التوفيق هو أن لا يكلك الله إلى نفسك، والخذلان هو أن يكلك الله إلى نفسك.",
+            q9: "العارف يسير إلى الله بين مشاهدة المنة ومطالعة عيب النفس والعمل.",
+            q10: "أقرب باب يدخل منه العبد على الله هو الإفلاس والافتقار المحض.",
+            q11: "أبوب بنعمتك علي يعني الاعتراف بالنعمة والإقرار بها لله تعالى.",
+            q12: "الله يبتلي العبد ليمتحن صبره وعبوديته، لا ليهلكه.",
+            q13: "الله تعالى يكفي عبده المؤمن ويحميه من كل سوء، وليس للعدو سلطان على عباد الله المخلصين.",
+            q14: "مشاهدة فضل الله وإحسانه توجب للعبد المحبة والحمد والشكر لولي النعم.",
+            q15: "مطالعة عيب النفس توجب للعبد الذل والانكسار والافتقار والتوبة.",
+            q16: "أبواب دخول إبليس على العبد هي: الغفلة، الشهوة، الغضب.",
+            q17: "سبب تفاوت مراتب العباد هو تفاوتهم في إعطاء العبودية في المكاره.",
+            q18: "العبودية في المكروه أعلى درجة لأنها تظهر حقيقة العبودية والانقياد لله في كل حال.",
+            q19: "العارف يجمع بين الشكر على النعم والاستغفار من الذنوب، والتفكر في نعم الله ثم في ذنوبه، وشكر الله ومحاسبة النفس.",
+            q20: "عندما يذنب العبد ثم يتوب توبة نصوحاً، يصبح الذنب سبباً في رحمة الله به ودخوله الجنة، لأنه دفعه إلى التوبة والانكسار والندم."
+        };
+        
+        // حساب النتيجة
+        function calculateScore() {
+            let score = 0;
+            let correctionHTML = "<h3>التصحيح:</h3>";
+            
+            for (let i = 1; i <= 20; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name=${questionName}]:checked`);
+                
+                if (selectedOption) {
+                    if (selectedOption.value === correctAnswers[questionName]) {
+                        score += 5;
+                        correctionHTML += `
+                            <div class="answer">
+                                <p><strong>السؤال ${i}:</strong> <span class="correct">إجابة صحيحة (+5 نقاط)</span></p>
+                                <div class="explanation">${answerExplanations[questionName]}</div>
+                            </div>
+                        `;
+                    } else {
+                        correctionHTML += `
+                            <div class="answer">
+                                <p><strong>السؤال ${i}:</strong> <span class="incorrect">إجابة خاطئة (0 نقاط)</span></p>
+                                <p>الإجابة الصحيحة: ${getOptionText(questionName, correctAnswers[questionName])}</p>
+                                <div class="explanation">${answerExplanations[questionName]}</div>
+                            </div>
+                        `;
+                    }
+                } else {
+                    correctionHTML += `
+                        <div class="answer">
+                            <p><strong>السؤال ${i}:</strong> <span class="incorrect">لم يتم الإجابة (0 نقاط)</span></p>
+                            <p>الإجابة الصحيحة: ${getOptionText(questionName, correctAnswers[questionName])}</p>
+                            <div class="explanation">${answerExplanations[questionName]}</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            document.getElementById("score").textContent = score;
+            document.getElementById("correction").innerHTML = correctionHTML;
+            document.getElementById("result").style.display = "block";
+            
+            // تحديد الرسالة بناء على النتيجة
+            let message = "";
+            if (score >= 90) {
+                message = "ممتاز! لديك فهم رائع لموضوع السعادة بثلاث وأركانها.";
+            } else if (score >= 70) {
+                message = "جيد جداً! لديك فهم جيد، ولكن يمكنك تحسين معرفتك أكثر.";
+            } else if (score >= 50) {
+                message = "مقبول! لديك فهم أساسي، ولكن تحتاج إلى مراجعة بعض الأجزاء.";
+            } else {
+                message = " تحتاج إلى دراسة الموضوع مرة أخرى لفهمه بشكل أفضل.";
+            }
+            
+            document.getElementById("message").textContent = message;
+            
+            // التمرير إلى نتيجة الاختبار
+            document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // الحصول على نص الخيار
+        function getOptionText(questionName, optionValue) {
+            const options = {
+                q1: { a: "أ) شكر النعمة، الصبر على البلاء، التوبة من الذنب", b: "ب) الصلاة، الصوم، الزكاة", c: "ج) الصدق، الأمانة، البر", d: "د) العلم، العمل، الدعوة" },
+                q2: { a: "أ) الاعتراف بالنعمة باطناً، التحدث بها ظاهراً، تصريفها في مرضاة الله", b: "ب) الصلاة، الصوم، الدعاء", c: "ج) الحمد، الثناء، الشكر", d: "د) الذكر، التسبيح، الاستغفار" },
+                q3: { a: "أ) حبس النفس عن التسخط، حبس اللسان عن الشكوى، حبس الجوارح عن المعصية", b: "ب) الصلاة، الصوم، الذكر", c: "ج) الصمت، الجلوس، الانتظار", d: "د) الكتمان، الصبر، الرضا" },
+                q4: { a: "أ) تتحول إلى منحة وعطية", b: "ب) تزيد المصيبة", c: "ج) تبقى كما هي", d: "د) تزول سريعاً" },
+                q5: { a: "أ) اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك...", b: "ب) أستغفر الله العظيم الذي لا إله إلا هو الحي القيوم وأتوب إليه", c: "ج) رب اغفر لي وتب علي إنك أنت التواب الرحيم", d: "د) لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير" },
+                q6: { a: "أ) أن الذنب قد يدفع العبد للتوبة والندم والانكسار لله", b: "ب) أن بعض الذنوب مغفورة ولا تؤثر", c: "ج) أن الله لا يحاسب على الذنوب الصغيرة", d: "د) أن الذنوب تمحى بالأعمال الصالحة" },
+                q7: { a: "أ) عبودية الضراء أعلى درجة لتفاوت مراتب العباد فيها", b: "ب) لا فرق بينهما", c: "ج) عبودية السراء أفضل لأنها تكون في حالة القوة", d: "د) عبودية الضراء أسهل لأن الإنسان يكون مضطراً" },
+                q8: { a: "أ) التوفيق: أن لا يكلك الله إلى نفسك، الخذلان: أن يكلك الله إلى نفسك", b: "ب) التوفيق: النجاح في الدنيا، الخذلان: الفشل في الدنيا", c: "ج) التوفيق: الرزق الوفير، الخذلان: الفقر", d: "د) التوفيق: الصحة والعافية، الخذلان: المرض" },
+                q9: { a: "أ) مشاهدة المنة ومطالعة عيب النفس", b: "ب) الصلاة والصوم", c: "ج) العلم والعمل", d: "د) الدعاء والذكر" },
+                q10: { a: "أ) الإفلاس والافتقار", b: "ب) العلم والمعرفة", c: "ج) الصلاة والعبادة", d: "د) الدعاء والمناجاة" },
+                q11: { a: "أ) الاعتراف بالنعمة والإقرار بها", b: "ب) طلب المزيد من النعم", c: "ج) الشكر على النعم", d: "د) التحدث بالنعم" },
+                q12: { a: "أ) ليمتحن صبره وعبوديته", b: "ب) لعقاب العبد على ذنوبه", c: "ج) لأن الله لا يحب العبد", d: "د) ليزيد العبد من الدعاء" },
+                q13: { a: "أ) أن الله يكفي عبده المؤمن ويحميه", b: "ب) أن الله يعطي العبد ما يكفيه من الرزق", c: "ج) أن الله يعاقب العبد الكافر", d: "د) أن الله يحاسب العبد على أعماله" },
+                q14: { a: "أ) يشعر بالمحبة والحمد والشكر", b: "ب) يشعر بالعجب والكبر", c: "ج) يشعر بالخوف والرهبة", d: "د) يشعر بالضعف والعجز" },
+                q15: { a: "أ) يشعر بالذل والانكسار والافتقار", b: "ب) يشعر باليأس والقنوط", c: "ج) يشعر بالغضب من نفسه", d: "د) يشعر بالحزن الشديد" },
+                q16: { a: "أ) الغفلة، الشهوة، الغضب", b: "ب) الجهل، الكسل، الغرور", c: "ج) الفقر، المرض، الجوع", d: "د) الوحدة، الخوف، القلق" },
+                q17: { a: "أ) تفاوتهم في إعطاء العبودية في المكاره", b: "ب) تفاوتهم في العلم والمعرفة", c: "ج) تفاوتهم في الصلاة والصوم", d: "د) تفاوتهم في الدعوة والدعاء" },
+                q18: { a: "أ) العبودية في المكروه أعلى درجة", b: "ب) العبودية في المحبوب أعلى درجة", c: "ج) لا فرق بينهما", d: "د) العبودية في المكروه أسهل" },
+                q19: { a: "أ) يجمع بين الشكر على النعم وال الاستغفار من الذنوب", b: "ب) يتفكر في نعم الله ثم في ذنوبه", c: "ج) يشكر الله ويحاسب نفسه", d: "د) جميع ما سبق" },
+                q20: { a: "أ) يصبح الذنب سبباً في رحمة الله ودخوله الجنة", b: "ب) يغفر الله له ولكن يبقى أثر الذنب", c: "ج) يتخلص من الذنب ولكن يعاقب عليه", d: "د) ينسى الذنب ولا يتذكره" }
+            };
+            
+            return options[questionName][optionValue];
+        }
+    </script>
+</body>
+</html>
