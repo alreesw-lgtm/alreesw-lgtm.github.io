@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>انضم الآن — تواصل معنا</title>
+  <meta name="description" content="اضغط للانتقال إلى واتساب والتواصل الفوري — سريع وآمن." />
+  <!-- ====== place for TikTok pixel or other tracking (see comments below) ====== -->
+  <!--
+    TIKTOK PIXEL:
+    ضع هنا كود TikTok Pixel الخاص بك إذا رغبت (أداةTikTok > Events > Web Pixel).
+    مثال (استبدل YOUR_PIXEL_ID):
+    <script>
+      !function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = w[t] = w[t] || [];
+        ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie"];
+        ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.instance = function (t) { var e = ttq._i[t] || []; return { page: function () { ttq.push(["page"].concat(Array.prototype.slice.call(arguments, 0))) } } };
+        ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = i; ttq._t = ttq._t || {}; ttq._t[e] = +new Date; ttq._o = ttq._o || {}; ttq._o[e] = n || {}; var o = document.createElement("script"); o.type = "text/javascript"; o.async = true; o.src = i + "?sdkid=" + e + "&lib=" + t; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(o, a) };
+        ttq.load('YOUR_PIXEL_ID');
+        ttq.page();
+      }(window, document, 'ttq');
+    </script>
+  -->
+  <style>
+    :root{
+      --bg1: linear-gradient(180deg,#04122a 0%, #072139 100%);
+      --card: rgba(255,255,255,0.04);
+      --accent:#e6b953;
+      --white: #ffffff;
+      --muted: rgba(255,255,255,0.85);
+      --shadow: 0 12px 30px rgba(2,8,23,0.7);
+      --radius:18px;
+      font-family: 'Tajawal', system-ui, -apple-system, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg1);color:var(--white);-webkit-font-smoothing:antialiased}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+    .card{width:100%;max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:row-reverse;align-items:stretch}
+    /* left panel (mobile first): content right, image left */
+    .panel{flex:1;padding:36px 40px;box-sizing:border-box}
+    .media{flex:1;background:linear-gradient(120deg,rgba(0,0,0,0.15), rgba(255,255,255,0.02));display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-img{width:100%;height:100%;object-fit:cover}
+    h1{font-size:28px;margin:0 0 12px;color:var(--accent);line-height:1.15}
+    p.lead{font-size:18px;margin:0 0 18px;color:var(--muted);line-height:1.6}
+    .features{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:14px;color:var(--white);border:1px solid rgba(255,255,255,0.03)}
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),#ffd88f);
+      color:#041322;padding:14px 20px;border-radius:12px;border:none;font-weight:700;font-size:17px;cursor:pointer;
+      box-shadow:0 10px 30px rgba(230,185,83,0.18);text-decoration:none;
+      display:inline-flex;align-items:center;gap:10px
+    }
+    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--white);padding:12px 16px;border-radius:10px;text-decoration:none}
+    .small{font-size:13px;color:rgba(255,255,255,0.7);margin-top:12px}
+    /* decorative circle */
+    .dot{position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:999px;background:rgba(230,185,83,0.06);filter:blur(12px);pointer-events:none}
+    /* responsive */
+    @media (max-width:880px){
+      .card{flex-direction:column-reverse}
+      .media{height:200px}
+      h1{font-size:24px}
+      .panel{padding:22px}
+    }
+    /* subtle animation for CTA */
+    .btn-primary:active{transform:translateY(1px)}
+    .pulse{animation:pulse 2.2s infinite}
+    @keyframes pulse{
+      0%{box-shadow:0 8px 24px rgba(230,185,83,0.14)}
+      50%{box-shadow:0 18px 38px rgba(230,185,83,0.08)}
+      100%{box-shadow:0 8px 24px rgba(230,185,83,0.14)}
+    }
+    footer{padding:18px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.6)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-label="صفحة هبوط — تواصل واتساب">
+      <div class="panel">
+        <div class="dot" aria-hidden></div>
+        <h1>تواصل معنا فورًا على واتساب</h1>
+        <p class="lead">انقر الزر بالأسفل للاتصال المباشر — استفسارات، دعم، أو لحجز الخدمة. سريع وآمن عبر واتساب.</p>
+
+        <div class="features" aria-hidden>
+          <div class="chip">دعم فوري</div>
+          <div class="chip">متاح 24/7</div>
+          <div class="chip">خصوصية وأمان</div>
+        </div>
+
+        <!-- CTA: the click sends user to wa.link and also triggers optional pixel event -->
+        <div class="cta">
+          <a id="cta-wa" class="btn-primary pulse" href="https://wa.link/qvnbgb" target="_blank" rel="noopener noreferrer"
+             aria-label="فتح محادثة واتساب">
+            ابدأ المحادثة الآن
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M21 11.5a8.5 8.5 0 1 0-2.5 6.01L21 23l-3.5-1A8.5 8.5 0 0 0 21 11.5z" fill="#041322" opacity="0.06"/>
+              <path d="M17.5 6.5c-.4-.4-1-.6-1.6-.6-2.1 0-4 1.6-4.7 3.7-.7 2.1-.3 4.3 1 5.9l-.4 1.5 1.5-.4c1.6 1.2 3.8 1.6 5.9 1 2.1-.7 3.7-2.6 3.7-4.7 0-.6-.2-1.2-.6-1.6l-1.4-1.4z" fill="#041322" opacity="0.08"/>
+            </svg>
+          </a>
+
+          <a class="btn-secondary" href="#" id="learn-more" onclick="alert('سيتم تحديث هذه الخاصية لاحقًا')">معلومات إضافية</a>
+        </div>
+
+        <p class="small">بمجرد الضغط سيتم فتح محادثة واتساب. تأكد أن هاتفك يدعم فتح روابط واتساب.</p>
+      </div>
+
+      <div class="media" aria-hidden>
+        <!-- استبدل الصورة أدناه بصورة شعارك أو صورة ترويجية -->
+        <img class="hero-img" src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
+            <rect width='100%' height='100%' fill='%23072139'/>
+            <text x='50%' y='50%' font-size='28' fill='%23e6b953' font-family='Tajawal, Arial' text-anchor='middle' dominant-baseline='middle'>اتصل الآن عبر واتساب</text>
+          </svg>" alt="صورة توضيحية - تواصل واتساب">
+      </div>
+    </div>
+  </div>
+
+  <footer>© جميع الحقوق محفوظة — صفحة هبوط معدّة لحملة إعلانية على TikTok Ads</footer>
+
+  <script>
+    // ====== Optional: TikTok Pixel event on CTA click ======
+    // إذا أضفت كود TikTok Pixel أعلاه (load with YOUR_PIXEL_ID),
+    // فعٍّل السطر التالي لإرسال حدث عند النقر:
+    // ttq.track('ClickToWhatsApp');  // مثال لحدث مخصص
+
+    // مثال جاهز: استدعاء حدث بعد الضغط (سيعمل إذا كان ttq مُعرفًا من كود البيكسل)
+    document.getElementById('cta-wa').addEventListener('click', function (e) {
+      try {
+        if (window.ttq && typeof window.ttq.track === 'function') {
+          window.ttq.track('ClickToWhatsApp', {value: 1});
+        }
+      } catch (err) {
+        console.warn('TikTok pixel event failed', err);
+      }
+      // لا تمنع إعادة التوجيه للواتساب (نفتح الرابط في تبويب جديد)
+    });
+  </script>
+</body>
+</html>
