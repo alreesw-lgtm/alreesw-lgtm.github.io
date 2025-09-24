@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مراتب تعظيم الحق عند ابن القيم — عرض تفاعلي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071025; /* midnight */
+      --card:#0f2a44; /* deep blue card */
+      --accent:#e6b953; /* gold */
+      --muted:#bcd3e6;
+      --glass: rgba(255,255,255,0.04);
+    }
+    html,body{height:100%;margin:0;font-family:'Tajawal', system-ui, sans-serif;background:linear-gradient(180deg,var(--bg),#041322);color:#fff}
+    .deck{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+    .slide{width:1200px;height:675px; /* 16:9 */ background:linear-gradient(180deg,var(--card),#032037);border-radius:18px;padding:48px;box-sizing:border-box;position:relative;box-shadow:0 20px 50px rgba(2,6,23,0.7);transform-origin:center;display:none;overflow:hidden}
+    .slide.visible{display:block;animation:enter .7s ease both}
+    @keyframes enter{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+    h1,h2{margin:0 0 12px 0}
+    h1{font-size:38px;color:var(--accent);letter-spacing:.6px}
+    h2{font-size:26px;color:#fff}
+    p{color:var(--muted);font-size:20px;line-height:1.6}
+
+    .meta{position:absolute;left:28px;bottom:22px;color:var(--muted);font-size:14px}
+    .controls{position:absolute;right:28px;bottom:22px;display:flex;gap:8px;align-items:center}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:#fff;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#ffd88f);color:#041322;font-weight:700}
+    .progress{height:6px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;width:240px}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffd88f);width:0%}
+
+    /* layout helpers */
+    .columns{display:flex;gap:28px;align-items:flex-start}
+    .col{flex:1}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px}
+
+    ul{padding-inline-start:24px;margin:10px 0}
+    li{margin:8px 0}
+
+    /* small UI */
+    .topline{position:absolute;right:40px;top:28px;color:var(--muted);font-size:13px}
+    .slide-number{position:absolute;left:40px;top:28px;color:var(--muted);font-size:13px}
+
+    /* print rules for PDF export */
+    @media print{
+      body{background:#fff;color:#000}
+      .deck{align-items:flex-start}
+      .slide{page-break-after:always;box-shadow:none;border-radius:0;margin:0;padding:40px;width:100%;height:auto;transform:none}
+      .controls,.topline,.meta{display:none}
+    }
+
+    /* small screens fallback */
+    @media (max-width:1300px){.slide{width:96%;height:64vh}}
+
+    /* subtle entry for list items */
+    .list-anim li{opacity:0;transform:translateX(22px)}
+    .list-anim.visible li{animation:liin .6s ease both;animation-delay:var(--delay)}
+    @keyframes liin{to{opacity:1;transform:none}}
+
+    /* footer note */
+    .note{font-size:14px;color:var(--muted);margin-top:12px}
+
+    /* Arabic typographic tweaks */
+    strong{color:#fff}
+  </style>
+</head>
+<body>
+  <div class="deck" role="application" aria-label="عرض مراتب تعظيم الحق">
+
+    <!-- Slide 1: Cover -->
+    <section class="slide visible" data-index="1" id="s1">
+      <div class="topline">عرض: مراتب تعظيم الحق — ابن القيم</div>
+      <div class="slide-number">الشريحة 1 / 11</div>
+      <h1>مكايد إبليس وفضل التوبة والافتقار إلى الله</h1>
+      <p style="font-size:18px;margin-top:18px">نص مركّز مستخرج من كتابات ابن القيم — تفسير لطريقة وسوسة العدو وسبل النجاة والرجوع إلى الله.</p>
+      <div class="meta">قابِل للطباعة ⇢ استخدم زر «تصدير إلى PDF»</div>
+    </section>
+
+    <!-- Slide 2: Intro -->
+    <section class="slide" data-index="2" id="s2">
+      <div class="topline">آيات وأقوال مركزية</div>
+      <div class="slide-number">الشريحة 2 / 11</div>
+      <h2>مقدمة</h2>
+      <p>إبليس عدو الإنسان الأول: لا يسلم عباده له، لكنه يدخل عليهم من أبواب الغفلة والشهوة والغضب. هذه الشرائح تشرح معنى ذلك وكيف تكون التوبة والافتقار بابًا للرجوع والنجاة.</p>
+    </section>
+
+    <!-- Slide 3: Ayah -->
+    <section class="slide" data-index="3" id="s3">
+      <div class="topline">الآية الواضحة</div>
+      <div class="slide-number">الشريحة 3 / 11</div>
+      <h2>آيات توضيحية</h2>
+      <div class="card" style="margin-top:12px">
+        <p style="font-size:20px;line-height:1.7">{فبعزتك لأغوينهم أجمعين * إلا عبادك منهم المخلصين} — [ص: 82]</p>
+        <p style="font-size:18px;margin-top:8px;color:var(--muted)">{ولقد صدق عليهم إبليس ظنه فاتبعوه إلا فريقا من المؤمنين * وما كان له عليهم من سلطان إلا لنعلم من يؤمن بالآخرة ممن هو منها في شك} — [سبأ:20]</p>
+      </div>
+    </section>
+
+    <!-- Slide 4: Explanation -->
+    <section class="slide" data-index="4" id="s4">
+      <div class="topline">شرح</div>
+      <div class="slide-number">الشريحة 4 / 11</div>
+      <h2>لم يمنح إبليس سلطاناً على المؤمنين</h2>
+      <p>المؤمنون في حرز الله وولايته؛ وإن اغتال إبليس أحدهم كاغتيال لصٍّ لمدركٍ غافل — فهذا يقع بعلة الامتحان أو الضعف البشري (الغفلة، الشهوة، الغضب).</p>
+      <ul class="list-anim" style="--delay:0s">
+        <li>الغفلة</li>
+        <li>الشهوة</li>
+        <li>الغضب</li>
+      </ul>
+    </section>
+
+    <!-- Slide 5: How he deceives -->
+    <section class="slide" data-index="5" id="s5">
+      <div class="topline">مثال: آدم عليه السلام</div>
+      <div class="slide-number">الشريحة 5 / 11</div>
+      <h2>كيف يوقع إبليس بني آدم في المعصية؟</h2>
+      <p>حتى آدم عليه السلام، أعلم الخلق، لم يسلم من وسوسة إبليس. العدو ينتظر الغرة والغفلة ليوقع، لكنه لا يملك المدامة على المؤمن إذا استمر بالافتقار والتوبة.</p>
+    </section>
+
+    <!-- Slide 6: Mercy after fall -->
+    <section class="slide" data-index="6" id="s6">
+      <div class="topline">الخير في سقوط العبد</div>
+      <div class="slide-number">الشريحة 6 / 11</div>
+      <h2>رحمة الله بعد الوقوع</h2>
+      <p>إذا أراد الله بعبده خيرًا فتح له أبواب التوبة والندم والانكسار والافتقار، فتتحول الوقعة إلى سبب للنجاة والرحمة، ويقول إبليس: يا ليتني تركته!</p>
+    </section>
+
+    <!-- Slide 7: Paradox -->
+    <section class="slide" data-index="7" id="s7">
+      <div class="topline">حديث السلف</div>
+      <div class="slide-number">الشريحة 7 / 11</div>
+      <h2>ذنب يدخل الجنة، وحسنة تدخل النار</h2>
+      <div class="columns" style="margin-top:16px">
+        <div class="col card">
+          <h3>الذنب المفيد</h3>
+          <p>الذنب الذي يوقظ العبد: يثير الخوف، الندم، البكاء، الانكسار، فيقوده ذلك إلى توبة صادقة تقربه من الله.</p>
+        </div>
+        <div class="col card">
+          <h3>الحسنة الضارة</h3>
+          <p>الحسنة التي تثمر الكِبر والرياء، فتصير سببًا للضلال والهلاك إذا لم يتبعها افتقار وتواضع.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Istighfar -->
+    <section class="slide" data-index="8" id="s8">
+      <div class="topline">سيد الاستغفار</div>
+      <div class="slide-number">الشريحة 8 / 11</div>
+      <h2>حديث سيد الاستغفار (بريدة)</h2>
+      <div class="card" style="margin-top:12px">
+        <p>«اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك... أعوذ بك من شر ما صنعت، أبوء بنعمتك علي وأبوء بذنبي، فاغفر لي، إنه لا يغفر الذنوب إلا أنت» — صحيح البخاري.</p>
+      </div>
+    </section>
+
+    <!-- Slide 9: Two principles -->
+    <section class="slide" data-index="9" id="s9">
+      <div class="topline">أصلان مهمان</div>
+      <div class="slide-number">الشريحة 9 / 11</div>
+      <h2>أصلان في سلوك العبد إلى الله</h2>
+      <ul style="margin-top:12px">
+        <li><strong>مشاهدة المنة</strong> → توجب المحبة، الشكر، والثناء.</li>
+        <li><strong>مطالعة عيب النفس والعمل</strong> → توجب الذل، الانكسار، والافتقار الدائم.</li>
+      </ul>
+      <p class="note">من جمع هذين الأصلين بنية صادقة نجا من خداع العدو غالبًا.</p>
+    </section>
+
+    <!-- Slide 10: Bankruptcy -->
+    <section class="slide" data-index="10" id="s10">
+      <div class="topline">أقرب باب</div>
+      <div class="slide-number">الشريحة 10 / 11</div>
+      <h2>أقرب باب إلى الله: الإفلاس والافتقار</h2>
+      <p>الإفلاس الحقيقي: أن يرى العبد فقره التام وحاجته المطلقة إلى الله، فيطرق باب العبودية الخالصة لا شريك لها.</p>
+    </section>
+
+    <!-- Slide 11: Conclusion -->
+    <section class="slide" data-index="11" id="s11">
+      <div class="topline">خاتمة</div>
+      <div class="slide-number">الشريحة 11 / 11</div>
+      <h2>خاتمة</h2>
+      <p>لا طريق إلى الله أقرب من العبودية، ولا حجاب أغلظ من الدعوى. إذا اجتمع الشكر ومطالعة العيب والتوبة المستمرة صار العبد في حرز من مكايد العدو.</p>
+      <p class="note">— المصدر: مقتطفات مبسطة من أفكار ابن القيم.</p>
+    </section>
+
+  </div>
+
+  <!-- bottom controls (global) -->
+  <div style="position:fixed;left:18px;bottom:18px;display:flex;gap:8px;align-items:center;z-index:999">
+    <button class="btn" id="prev">السابق ←</button>
+    <button class="btn" id="next">→ التالي</button>
+    <button class="btn primary" id="print">تصدير إلى PDF</button>
+    <div style="width:260px;display:flex;align-items:center;gap:8px">
+      <div class="progress" aria-hidden><i id="bar"></i></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let idx = slides.findIndex(s => s.classList.contains('visible')) || 0;
+      const total = slides.length;
+      const bar = document.getElementById('bar');
+      function show(i){
+        slides.forEach(s=>s.classList.remove('visible'));
+        const s = slides[i];
+        s.classList.add('visible');
+        // update slide number text inside
+        const num = i+1;
+        s.querySelector('.slide-number') && (s.querySelector('.slide-number').textContent = `الشريحة ${num} / ${total}`);
+        // animate list items (stagger)
+        const list = s.querySelector('.list-anim');
+        if(list){
+          const lis = Array.from(list.querySelectorAll('li'));
+          lis.forEach((li,j)=>{ li.style.animationDelay = (j*0.08)+'s'; });
+          setTimeout(()=>list.classList.add('visible'),80);
+        }
+        // progress
+        bar.style.width = Math.round(((i+1)/total)*100) + '%';
+      }
+      show(idx);
+
+      document.getElementById('next').addEventListener('click',()=>{ idx = Math.min(idx+1,total-1); show(idx); });
+      document.getElementById('prev').addEventListener('click',()=>{ idx = Math.max(idx-1,0); show(idx); });
+
+      // keyboard navigation
+      window.addEventListener('keydown',e=>{
+        if(['ArrowRight','PageDown',' '].includes(e.key)) { idx = Math.min(idx+1,total-1); show(idx); }
+        if(['ArrowLeft','PageUp'].includes(e.key)) { idx = Math.max(idx-1,0); show(idx); }
+      });
+
+      // print button
+      document.getElementById('print').addEventListener('click',()=>{
+        // small visual hint then print
+        document.body.style.transition='opacity .2s';
+        window.print();
+      });
+
+      // touch gestures (swipe)
+      let startX=null;
+      window.addEventListener('touchstart',e=>{ startX=e.changedTouches[0].clientX; });
+      window.addEventListener('touchend',e=>{
+        if(!startX) return; const dx = e.changedTouches[0].clientX - startX;
+        if(dx < -40) idx = Math.min(idx+1,total-1);
+        if(dx > 40) idx = Math.max(idx-1,0);
+        show(idx); startX=null;
+      });
+
+      // make internal links (if any) open at slide
+      window.location.hash && (()=>{
+        const h = window.location.hash.slice(1);
+        const el = document.getElementById(h);
+        if(el){ idx = slides.indexOf(el); if(idx>=0) show(idx); }
+      })();
+
+    })();
+  </script>
+
+  <!-- usage tips (printed inside file only) -->
+  <!--
+    طريقة الاستخدام:
+    - اضغط "تصدير إلى PDF" لطباعة الشرائح إلى ملف PDF عبر نافذة الطباعة في المتصفح.
+    - لجعل كل شريحة صفحة واحدة في الـ PDF: عند نافذة الطباعة اختر "مقاس العرض الكامل" أو إعدادات الطباعة لتضمين خلفيات الصفحة.
+    - لتحويل إلى PPT: يمكنك استيراد ملف PDF الناتج في PowerPoint (ملف > افتح أو استيراد) أو استخدام أدوات تحويل PDF → PPT.
+  -->
+</body>
+</html>
