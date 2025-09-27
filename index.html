@@ -49,18 +49,17 @@
     <section>
       <h2>صفحات الموقع</h2>
       <div class="links">
-        <!-- تم حذف صفحة 2 و 3 -->
-        <a href="page4.html" target="_blank">الصفحة 4</a>
-        <a href="page5.html" target="_blank">الصفحة 5</a>
-        <a href="page6.html" target="_blank">الصفحة 6</a>
-        <a href="page7.html" target="_blank">الصفحة 7</a>
-        <a href="page8.html" target="_blank">الصفحة 8</a>
-        <a href="page9.html" target="_blank">الصفحة 9</a>
-        <a href="page10.html" target="_blank">الصفحة 10</a>
-        <a href="page11.html" target="_blank">الصفحة 11</a>
-        <a href="page12.html" target="_blank">الصفحة 12</a>
-        <a href="page13.html" target="_blank">الصفحة 13</a>
-      </div>
+        <a href="page4.html" target="_blank">مكايد إبليس وفضل التوبة والافتقار إلى الله.</a>
+        <a href="page5.html" target="_blank">اختبار حول طاعة العلماء والأمراء في تحريم ما احل الله</a>
+        <a href="page6.html" target="_blank">اختبار كتاب الوابل الصيب الى موضوع استقامة القلب</a>
+        <a href="page7.html" target="_blank">اختبار في وجوب اتباع الدليل وذم التقليد الأعمى</a>
+        <a href="page8.html" target="_blank">فضل طلب العلم</a>
+        <a href="page9.html" target="_blank">اختبار في كتاب الوابل الصيب</a>
+        <a href="page10.html" target="_blank">اختبار كتاب الوسائل المفيدة في الحياة السعيدة</a>
+        <a href="page11.html" target="_blank">أنواع التوحيد في الإسلام</a>
+        <a href="page12.html" target="_blank">اختبار في تفسير الأدلة من الكتاب والسنة في باب طاعة العلماء والأمراء في تحريم ما احله الله من كتاب فتح المجيد.</a>
+        <a href="page13.html" target="_blank">مخطط تعليمي - أنواع التوحيد في الإسلام</a>
+        </div>
     </section>
   </main>
 
@@ -69,6 +68,89 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
 
+  <!-- زِر الإحصاء: يسجل زيارات المتصفح الحالية باستخدام localStorage
+       ملاحظة مهمة: صفحة ثابتة على GitHub Pages لا تسمح بتخزين زيارات عالمية على الخادم.
+       للحصول على عداد زوار عام يجب استخدام خدمة خلفية (مثلاً Google Analytics أو endpoint على سيرفر)
+  -->
+  <section style="max-width:900px;margin:20px auto;padding:12px;border-radius:8px;background:#f5f5f5;">
+    <h2>عداد الزيارات (محلي)</h2>
+    <p id="visitSummary">جارٍ تحميل بيانات الزيارات...</p>
+    <table id="visitsTable" style="width:100%;border-collapse:collapse;display:none;margin-top:8px">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:6px;border-bottom:1px solid #ddd">التاريخ والوقت</th>
+          <th style="text-align:left;padding:6px;border-bottom:1px solid #ddd">البلد (تقريبي)</th>
+          <th style="text-align:left;padding:6px;border-bottom:1px solid #ddd">المعلومات</th>
+        </tr>
+      </thead>
+      <tbody id="visitsTbody"></tbody>
+    </table>
+    <p style="font-size:12px;color:#555;margin-top:8px">ملاحظة: هذا العداد يعمل محليًا في متصفح الزائر. لتجميع زيارات من كل المستخدمين يلزم إضافة خدمة خارجية أو واجهة برمجة تطبيقات على السيرفر.</p>
+  </section>
+
+  <script>
+    (function() {
+      const VISITS_KEY = 'site_visits_v1';
+      function nowISO() { return new Date().toISOString(); }
+      // read visits array from localStorage
+      let visits = [];
+      try { visits = JSON.parse(localStorage.getItem(VISITS_KEY) || '[]'); } catch(e) { visits = []; }
+      // prepare new visit record
+      const visitRecord = { time: nowISO(), userAgent: navigator.userAgent, country: 'غير معروف' };
+      // try to fetch country by IP using a public API (ستعمل عند نشر الصفحة مباشرة طالما تسمح الـ CORS)
+      fetch('https://ipapi.co/json/')
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.country_name) visitRecord.country = data.country_name;
+        })
+        .catch(() => {
+          // فشل جلب البلد — يظل 'غير معروف'
+        })
+        .finally(() => {
+          // push and save
+          visits.push(visitRecord);
+          try { localStorage.setItem(VISITS_KEY, JSON.stringify(visits)); } catch(e) {}
+          renderVisits(visits);
+        });
+
+      function renderVisits(visitsArr) {
+        const summary = document.getElementById('visitSummary');
+        const table = document.getElementById('visitsTable');
+        const tbody = document.getElementById('visitsTbody');
+        summary.textContent = `عدد الزيارات المسجلة (من هذا المتصفح): ${visitsArr.length}`;
+        if (visitsArr.length === 0) { table.style.display = 'none'; return; }
+        tbody.innerHTML = '';
+        // show latest 50 visits to avoid ثقل الصفحة
+        const recent = visitsArr.slice(-50).reverse();
+        recent.forEach(v => {
+          const tr = document.createElement('tr');
+          const tdTime = document.createElement('td');
+          tdTime.style.padding = '6px';
+          tdTime.textContent = new Date(v.time).toLocaleString('ar-EG');
+          const tdCountry = document.createElement('td');
+          tdCountry.style.padding = '6px';
+          tdCountry.textContent = v.country || 'غير معروف';
+          const tdInfo = document.createElement('td');
+          tdInfo.style.padding = '6px';
+          tdInfo.textContent = v.userAgent || '';
+          tr.appendChild(tdTime); tr.appendChild(tdCountry); tr.appendChild(tdInfo);
+          tbody.appendChild(tr);
+        });
+        table.style.display = 'table';
+      }
+
+      // allow user to clear local log by pressing "c" while holding Alt (اختياري)
+      window.addEventListener('keydown', function(e){
+        if (e.altKey && (e.key === 'c' || e.key === 'C')) {
+          if (confirm('هل تريد مسح سجل الزيارات المخزن محليًا في هذا المتصفح؟')) {
+            localStorage.removeItem(VISITS_KEY);
+            renderVisits([]);
+          }
+        }
+      });
+    })();
+  </script>
+
+</body>
 </html>
