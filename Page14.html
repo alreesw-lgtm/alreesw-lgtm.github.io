@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار تفاعلي (20 سؤال)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Tahoma", "Arial", sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .options-container {
+            margin: 15px 0;
+        }
+
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .option:hover {
+            background: #f1f1f1;
+            border-color: #3498db;
+        }
+
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .prev-btn {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .next-btn {
+            background: #3498db;
+            color: white;
+        }
+
+        .submit-btn {
+            background: #e74c3c;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .restart-btn {
+            background: #27ae60;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result-container {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            display: none;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .percentage {
+            font-size: 20px;
+            color: #7f8c8d;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #3498db;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-counter {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .option {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>📘 اختبار تفاعلي (20 سؤال) 📘</h2>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="question-counter" id="questionCounter">السؤال 1 من 20</div>
+        
+        <div class="question-container">
+            <div class="question-text" id="questionText"></div>
+            <div class="options-container" id="optionsContainer"></div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" disabled>السابق</button>
+            <button class="nav-btn next-btn" id="nextBtn">التالي</button>
+        </div>
+
+        <button class="submit-btn" id="submitBtn">إنهاء الاختبار</button>
+        <button class="restart-btn" id="restartBtn">إعادة المحاولة</button>
+
+        <div class="result-container" id="resultContainer">
+            <div class="score" id="scoreText"></div>
+            <div class="percentage" id="percentageText"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                q: "ما الحكمة من الذنب الذي يورث العبد الندم والخشوع؟",
+                options: ["يدخله الجنة", "يزيده كبراً", "يمحو الطاعات", "يسقطه عند الناس", "لا أثر له"],
+                answer: 0
+            },
+            {
+                q: "ما الذي قد يجعل الحسنة سبب دخول النار؟",
+                options: ["الإخلاص", "المن والكبر والإعجاب بها", "العمل الجماعي", "النية الصالحة", "التواضع"],
+                answer: 1
+            },
+            {
+                q: "كيف يكون حال العبد إذا تذكر ذنبه؟",
+                options: ["فرح متكبر", "مشفق وجِل باكٍ", "مغرور بعمله", "منكر لذنبه", "غافل"],
+                answer: 1
+            },
+            {
+                q: "ما معنى الخذلان؟",
+                options: ["النصر والتوفيق", "ترك العبد مع عُجبه وكبره", "النجاح في العبادة", "غلبة العدو", "كثرة الطاعات"],
+                answer: 1
+            },
+            {
+                q: "من هو القائل: سيد الاستغفار أن يقول العبد...؟",
+                options: ["ابن القيم", "البخاري", "النبي ﷺ", "الإمام أحمد", "بريدة رضي الله عنه"],
+                answer: 2
+            },
+            {
+                q: "ما معنى: أبوء لك بنعمتك علي؟",
+                options: ["مشاهدة المنة", "مشاهدة الذنب", "الاستغفار", "التكبير", "الإعجاب بالعمل"],
+                answer: 0
+            },
+            {
+                q: "ما معنى: أبوء بذنبي؟",
+                options: ["شكر النعم", "مطالعة عيب النفس والعمل", "ترك الدعاء", "الافتخار بالطاعة", "المن على الله"],
+                answer: 1
+            },
+            {
+                q: "ماذا توجب مشاهدة المنة؟",
+                options: ["التكبر", "المحبة والشكر لله", "الإعجاب بالنفس", "الغفلة", "المباهاة"],
+                answer: 1
+            },
+            {
+                q: "ماذا يورث مطالعة عيب النفس؟",
+                options: ["الذل والانكسار والتوبة", "الكبرياء", "الإعجاب", "العجب بالعمل", "المن على الناس"],
+                answer: 0
+            },
+            {
+                q: "ما أقرب باب يدخل منه العبد على الله؟",
+                options: ["باب المال", "باب الإفلاس والافتقار", "باب الكبر", "باب الشهرة", "باب المن"],
+                answer: 1
+            },
+            {
+                q: "ما أشد الحجب بين العبد وربه؟",
+                options: ["العبودية", "الدعوى", "الزهد", "التوبة", "الشكر"],
+                answer: 1
+            },
+            {
+                q: "متى يهلك العبد ويخسر؟",
+                options: ["إذا تُرك لنفسه لحظة", "إذا صلى كثيراً", "إذا شكر ربه", "إذا استغفر", "إذا تواضع"],
+                answer: 0
+            },
+            {
+                q: "ما سبب إنعاش الله للعبد المذنب؟",
+                options: ["غروره", "كسرة قلبه وافتقاره", "كبره", "ترك الدعاء", "الإعجاب"],
+                answer: 1
+            },
+            {
+                q: "ما معنى الإفلاس هنا؟",
+                options: ["الغنى", "عدم رؤية النفس حالاً أو مقاماً", "الكرامة", "الشهرة", "المن على الخلق"],
+                answer: 1
+            },
+            {
+                q: "متى تكون الطاعة سبباً للهلاك؟",
+                options: ["مع الإخلاص", "مع العجب والكبر", "مع الخشية", "مع التوبة", "مع الذل"],
+                answer: 1
+            },
+            {
+                q: "ما الذي يوجب الرحمة والتدارك من الله؟",
+                options: ["الافتخار بالعمل", "التوبة والافتقار", "المن على الله", "العجب", "الاستطالة"],
+                answer: 1
+            },
+            {
+                q: "ما الذكر الذي ورد في سيد الاستغفار؟",
+                options: ["اللهم أنت ربي...", "سبحان الله", "لا إله إلا الله وحده لا شريك له", "الحمد لله", "الله أكبر"],
+                answer: 0
+            },
+            {
+                q: "كيف يعامل الله العبد إذا أراد به خيراً بعد الكبر؟",
+                options: ["يبتليه بما يكسره", "يزيده كبراً", "يعطيه مالاً", "يمنعه الطاعة", "يتركه"],
+                answer: 0
+            },
+            {
+                q: "ما الذي يوصل العبد إلى الله سريعاً؟",
+                options: ["العبودية الخالصة", "المال", "الشهرة", "الجاه", "التكبر"],
+                answer: 0
+            },
+            {
+                q: "ما الخطر الأكبر على العبد في طريقه إلى الله؟",
+                options: ["التوبة", "الدعوى والعجب", "الخشية", "الإخلاص", "الافتقار"],
+                answer: 1
+            }
+        ];
+
+        class QuizApp {
+            constructor() {
+                this.currentQuestion = 0;
+                this.userAnswers = new Array(questions.length).fill(null);
+                this.quizCompleted = false;
+                
+                this.initializeElements();
+                this.showQuestion();
+                this.attachEventListeners();
+            }
+
+            initializeElements() {
+                this.questionText = document.getElementById('questionText');
+                this.optionsContainer = document.getElementById('optionsContainer');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.submitBtn = document.getElementById('submitBtn');
+                this.restartBtn = document.getElementById('restartBtn');
+                this.resultContainer = document.getElementById('resultContainer');
+                this.scoreText = document.getElementById('scoreText');
+                this.percentageText = document.getElementById('percentageText');
+                this.progressBar = document.getElementById('progress');
+                this.questionCounter = document.getElementById('questionCounter');
+            }
+
+            attachEventListeners() {
+                this.prevBtn.addEventListener('click', () => this.previousQuestion());
+                this.nextBtn.addEventListener('click', () => this.nextQuestion());
+                this.submitBtn.addEventListener('click', () => this.submitQuiz());
+                this.restartBtn.addEventListener('click', () => this.restartQuiz());
+            }
+
+            showQuestion() {
+                const question = questions[this.currentQuestion];
+                this.questionText.textContent = question.q;
+                this.optionsContainer.innerHTML = '';
+
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'option';
+                    if (this.userAnswers[this.currentQuestion] === index) {
+                        optionElement.classList.add('selected');
+                    }
+                    optionElement.textContent = option;
+                    optionElement.addEventListener('click', () => this.selectOption(index));
+                    this.optionsContainer.appendChild(optionElement);
+                });
+
+                this.updateNavigationButtons();
+                this.updateProgress();
+                this.updateQuestionCounter();
+            }
+
+            selectOption(optionIndex) {
+                this.userAnswers[this.currentQuestion] = optionIndex;
+                this.showQuestion();
+            }
+
+            updateNavigationButtons() {
+                this.prevBtn.disabled = this.currentQuestion === 0;
+                this.nextBtn.disabled = this.currentQuestion === questions.length - 1;
+            }
+
+            updateProgress() {
+                const progress = ((this.currentQuestion + 1) / questions.length) * 100;
+                this.progressBar.style.width = `${progress}%`;
+            }
+
+            updateQuestionCounter() {
+                this.questionCounter.textContent = `السؤال ${this.currentQuestion + 1} من ${questions.length}`;
+            }
+
+            nextQuestion() {
+                if (this.currentQuestion < questions.length - 1) {
+                    this.currentQuestion++;
+                    this.showQuestion();
+                }
+            }
+
+            previousQuestion() {
+                if (this.currentQuestion > 0) {
+                    this.currentQuestion--;
+                    this.showQuestion();
+                }
+            }
+
+            submitQuiz() {
+                if (confirm('هل أنت متأكد من إنهاء الاختبار؟')) {
+                    this.calculateScore();
+                    this.showResults();
+                    this.quizCompleted = true;
+                }
+            }
+
+            calculateScore() {
+                let score = 0;
+                questions.forEach((question, index) => {
+                    if (this.userAnswers[index] === question.answer) {
+                        score += 5;
+                    }
+                });
+                return score;
+            }
+
+            showResults() {
+                const score = this.calculateScore();
+                const totalScore = questions.length * 5;
+                const percentage = (score / totalScore) * 100;
+
+                this.scoreText.textContent = `مجموع نقاطك: ${score} من ${totalScore}`;
+                this.percentageText.textContent = `النسبة المئوية: ${percentage.toFixed(1)}%`;
+
+                // إخفاء عناصر واجهة المستخدم غير الضرورية
+                this.prevBtn.style.display = 'none';
+                this.nextBtn.style.display = 'none';
+                this.submitBtn.style.display = 'none';
+                
+                // عرض النتائج وزر إعادة المحاولة
+                this.resultContainer.style.display = 'block';
+                this.restartBtn.style.display = 'block';
+
+                // إظهار الإجابات الصحيحة والخاطئة
+                this.showAnswerFeedback();
+            }
+
+            showAnswerFeedback() {
+                const options = this.optionsContainer.querySelectorAll('.option');
+                const correctAnswer = questions[this.currentQuestion].answer;
+                const userAnswer = this.userAnswers[this.currentQuestion];
+
+                options.forEach((option, index) => {
+                    if (index === correctAnswer) {
+                        option.classList.add('correct');
+                    } else if (index === userAnswer && userAnswer !== correctAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                });
+            }
+
+            restartQuiz() {
+                this.currentQuestion = 0;
+                this.userAnswers.fill(null);
+                this.quizCompleted = false;
+
+                // إعادة تعيين واجهة المستخدم
+                this.prevBtn.style.display = 'block';
+                this.nextBtn.style.display = 'block';
+                this.submitBtn.style.display = 'block';
+                this.resultContainer.style.display = 'none';
+                this.restartBtn.style.display = 'none';
+
+                this.showQuestion();
+            }
+        }
+
+        // بدء التطبيق عندما يتم تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            new QuizApp();
+        });
+    </script>
+</body>
+</html>
