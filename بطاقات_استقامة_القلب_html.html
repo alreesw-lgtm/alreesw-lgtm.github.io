@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>بطاقات تفاعلية: استقامة القلب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#0b5fff;
+      --muted:#6b7280;
+      --radius:14px;
+      --shadow: 0 6px 20px rgba(11,95,255,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'El Messiri',system-ui,Segoe UI,Arial;
+      background:linear-gradient(180deg,var(--bg),#eef3ff);
+      padding:28px;
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:1000px;margin:0 auto}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    .controls{display:flex;gap:8px;align-items:center}
+    button.btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:10px;cursor:pointer;box-shadow:var(--shadow);font-weight:700}
+    button.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,95,255,0.12)}
+    input.search{padding:10px 12px;border-radius:10px;border:1px solid #e6e9f2;width:260px}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .card h2{margin:0 0 8px 0;font-size:16px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .excerpt{color:#111827;line-height:1.6;max-height:5.2em;overflow:hidden}
+    .actions{display:flex;gap:8px;margin-top:12px}
+    .icon-btn{background:#f3f6ff;border:0;padding:8px 10px;border-radius:10px;cursor:pointer}
+
+    .expand{margin-top:12px;border-top:1px dashed #eef2ff;padding-top:12px;display:none}
+    .card.open .excerpt{max-height:none}
+    .card.open .expand{display:block}
+
+    .tag{display:inline-block;background:#eef5ff;color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* small utilities */
+    pre{white-space:pre-wrap;font-family:inherit;background:#f8fafc;padding:12px;border-radius:8px;border:1px solid #eef2ff}
+
+    @media (max-width:420px){.controls{flex-direction:column;align-items:stretch}.controls input.search{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>استقامة القلب — بطاقات تفاعلية</h1>
+        <div class="meta">نُظِّم النص إلى بطاقات قابلة للفتح والنسخ والبحث — اضغط على زر (فتح) لقراءة كل بطاقة كاملة.</div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search" placeholder="ابحث في النص...">
+        <button class="btn" id="expandAll">فتح / إغلاق الكل</button>
+        <button class="secondary" id="printBtn">طباعة</button>
+      </div>
+    </header>
+
+    <main class="grid" id="cards">
+      <!-- Card 1: مقدمة -->
+      <article class="card" data-title="مقدمة">
+        <div class="tag">مقدمة</div>
+        <h2>ما هي الاستقامة؟</h2>
+        <div class="meta">تعريف وأهمية الاستقامة</div>
+        <p class="excerpt">الاستقامة تعني لزوم الصراط المستقيم ظاهرًا وباطنًا، وهي من أعظم مقامات الدين، وقد أمر الله تعالى بها في قوله: ﴿إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا﴾ (فصلت: 30). وفي الحديث: «قُلْ آمنتُ بالله ثم استقم» رواه مسلم.</p>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleCard(this)">فتح/إغلاق</button>
+          <button class="icon-btn" onclick="copyCard(this)">نسخ</button>
+        </div>
+        <div class="expand">
+          <pre>قال ابن القيم رحمه الله: “استقامة القلب أساس استقامة الجوارح، فإذا استقام القلب استقامت الجوارح كلها.” (مدارج السالكين 2/77)</pre>
+        </div>
+      </article>
+
+      <!-- Card 2: محبة الله -->
+      <article class="card" data-title="محبة الله وتقدمها">
+        <div class="tag">الأول</div>
+        <h2>محبة الله وتقدُّمها على كل محبوب</h2>
+        <div class="meta">أول مراتب الاستقامة</div>
+        <p class="excerpt">أن يكون حب الله أعظم من حب النفس، والأهل، والمال، والدنيا، فيُقدّم العبد طاعة الله على هوى نفسه.</p>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleCard(this)">فتح/إغلاق</button>
+          <button class="icon-btn" onclick="copyCard(this)">نسخ</button>
+        </div>
+        <div class="expand">
+          <p>الأدلة من القرآن الكريم:
+          <ul>
+            <li>﴿وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّللَّهِ﴾ البقرة: 165</li>
+            <li>﴿قُلْ إِن كَانَ آبَاؤُكُمْ... أَحَبَّ إِلَيْكُم مِّنَ اللَّهِ﴾ التوبة: 24</li>
+          </ul>
+          من السنة: «لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين» (متفق عليه).
+          </p>
+          <p>قال الحسن البصري: “من أحب الله لم يعصه، ومن خافه لم يأمن من عقوبته.” وذكر ابن القيم: “فإذا تعارضت محبة الله ومحبة غيره، وجب تقديم محبته، فإن لم يفعل فليس بصادق في محبته لله.” (مدارج السالكين 3/17)</p>
+        </div>
+      </article>
+
+      <!-- Card 3: تعظيم الأمر والنهي -->
+      <article class="card" data-title="تعظيم الأمر والنهي">
+        <div class="tag">الثاني</div>
+        <h2>تعظيم الأمر والنهي</h2>
+        <div class="meta">مراتب الاستقامة العملية</div>
+        <p class="excerpt">أن يشعر العبد بعظمة الله في كل أمر ونهي، فيمتثل أوامره ويجتنب نواهيه، لأن مصدرها الله العظيم.</p>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleCard(this)">فتح/إغلاق</button>
+          <button class="icon-btn" onclick="copyCard(this)">نسخ</button>
+        </div>
+        <div class="expand">
+          <p>الأدلة من القرآن:
+          <ul>
+            <li>﴿مَا لَكُمْ لَا تَرْجُونَ لِلَّهِ وَقَارًا﴾ [نوح: 13]</li>
+            <li>﴿ذَٰلِكَ وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾ [الحج: 32]</li>
+          </ul>
+          من السنة: «إن الله يغار، وغيرة الله أن يأتي المؤمن ما حرّم الله» (البخاري).
+          </p>
+          <p>قال ابن القيم: “قدر الإسلام في قلب العبد كقدر تعظيمه لأمر الله ونهيه.” (مدارج السالكين 1/109)</p>
+        </div>
+      </article>
+
+      <!-- Card 4: مراتب التعظيم -->
+      <article class="card" data-title="مراتب التعظيم">
+        <div class="tag">مراتب</div>
+        <h2>مراتب التعظيم التي يستقيم بها القلب</h2>
+        <div class="meta">تفصيل مراتب التعظيم</div>
+        <p class="excerpt">تعظيم أمر الله ونهيه: تقديم أمر الله على الهوى والعادة، وتفصيل في أسماء الله وصفاته وشعائره وغيرها.</p>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleCard(this)">فتح/إغلاق</button>
+          <button class="icon-btn" onclick="copyCard(this)">نسخ</button>
+        </div>
+        <div class="expand">
+          <ol>
+            <li><strong>تعظيم أمر الله ونهيه:</strong> تقديم أمر الله على الهوى والعادة. (آيات وأحاديث وردت)</li>
+            <li><strong>تعظيم أسماء الله وصفاته:</strong> الإيمان الكامل بأسمائه وصفاته. ﴿وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَى فَادْعُوهُ بِهَا﴾ [الأعراف: 180]</li>
+            <li><strong>تعظيم قدر الله ومشيئته:</strong> الإيمان أن كل شيء بقدر الله. ﴿وَكَانَ أَمْرُ اللَّهِ قَدَرًا مَّقْدُورًا﴾ [الأحزاب: 38]</li>
+            <li><strong>تعظيم شعائر الله:</strong> احترام كل ما له علاقة بالدين. ﴿وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾ [الحج: 32]</li>
+            <li><strong>تعظيم الحق في العبادة:</strong> الإخلاص وترك الرياء. ﴿وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ﴾ [البينة: 5]</li>
+            <li><strong>تعظيم النعمة:</strong> شكر النعم والاعتراف بأنها من الله. ﴿وَمَا بِكُم مِّن نِّعْمَةٍ فَمِنَ اللَّهِ﴾ [النحل: 53]</li>
+            <li><strong>تعظيم الحرمات:</strong> احترام ما حرمه الله. ﴿وَمَن يُعَظِّمْ حُرُمَاتِ اللَّهِ فَهُوَ خَيْرٌ لَّهُ عِندَ رَبِّهِ﴾ [الحج: 30]</li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- Card 5: الخلاصة -->
+      <article class="card" data-title="الخلاصة">
+        <div class="tag">الخلاصة</div>
+        <h2>خلاصة: أصل الاستقامة</h2>
+        <div class="meta">محبة الله وتعظيمه أساس الاستقامة</div>
+        <p class="excerpt">استقامة القلب تقوم على محبة الله وتعظيمه، وهما أصل الدين كله. فمن جمع بينهما استقامت جوارحه واستقام قلبه.</p>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleCard(this)">فتح/إغلاق</button>
+          <button class="icon-btn" onclick="copyCard(this)">نسخ</button>
+        </div>
+        <div class="expand">
+          <p>قال ابن تيمية رحمه الله: “القلب لا يصلح إلا إذا كان الله محبوبه ومعبوده، والمعظم في قلبه هو الله وحده.”</p>
+        </div>
+      </article>
+
+    </main>
+
+    <footer>
+      يمكنك استخدام مربع البحث للعثور على كلمة أو عنوان داخل البطاقات — كما يمكنك نسخ محتوى البطاقة أو طباعته.
+    </footer>
+  </div>
+
+  <script>
+    const cardsContainer = document.getElementById('cards');
+    document.getElementById('search').addEventListener('input', e=>{
+      const q = e.target.value.trim();
+      const cards = Array.from(cardsContainer.querySelectorAll('.card'));
+      if(!q){cards.forEach(c=>c.style.display='block');return}
+      const re = new RegExp(q,'i');
+      cards.forEach(c=>{
+        const text = (c.dataset.title + ' ' + c.innerText).replace(/\n/g,' ');
+        c.style.display = re.test(text) ? 'block' : 'none';
+      })
+    });
+
+    function toggleCard(btn){
+      const card = btn.closest('.card');
+      card.classList.toggle('open');
+      btn.innerText = card.classList.contains('open') ? 'إغلاق' : 'فتح/إغلاق';
+    }
+    function copyCard(btn){
+      const card = btn.closest('.card');
+      const text = card.innerText.replace(/\s+\n/g,'\n').trim();
+      navigator.clipboard.writeText(text).then(()=>{
+        btn.innerText='تم النسخ';setTimeout(()=>btn.innerText='نسخ',1200)
+      }).catch(()=>alert('تعذر النسخ، استخدم النسخ اليدوي'))
+    }
+
+    document.getElementById('expandAll').addEventListener('click', ()=>{
+      const all = Array.from(document.querySelectorAll('.card'));
+      const anyClosed = all.some(c=>!c.classList.contains('open'));
+      all.forEach(c=>c.classList.toggle('open', anyClosed));
+      document.querySelectorAll('.icon-btn').forEach(b=>{ if(b.closest('.card')) b.innerText = anyClosed ? 'إغلاق' : 'فتح/إغلاق' })
+    });
+
+    document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+    // Accessibility: allow Enter key to toggle focused card buttons
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Enter' && document.activeElement.classList.contains('icon-btn')){
+        document.activeElement.click();
+      }
+    });
+  </script>
+</body>
+</html>
