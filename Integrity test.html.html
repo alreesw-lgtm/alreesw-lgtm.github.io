@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الاستقامة القلبية في الإسلام</title>
+    <style>
+        :root {
+            --primary-color: #2c5f2d;
+            --secondary-color: #97bc62;
+            --accent-color: #f0f7da;
+            --text-color: #333;
+            --light-color: #f9f9f9;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #e6f3d6 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 18px;
+        }
+        
+        .instructions {
+            background-color: var(--accent-color);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        .instructions h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            transition: all 0.3s ease;
+        }
+        
+        .question:hover {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .question-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option:hover {
+            background-color: #f0f7da;
+            border-color: var(--secondary-color);
+        }
+        
+        .option.selected {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #388E3C;
+        }
+        
+        .option.incorrect {
+            background-color: #F44336;
+            color: white;
+            border-color: #D32F2F;
+        }
+        
+        .answer-section {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .answer-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .correct-answer {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .explanation {
+            color: #555;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #1e421f;
+            transform: translateY(-2px);
+        }
+        
+        #showResults {
+            background-color: var(--secondary-color);
+        }
+        
+        #showResults:hover {
+            background-color: #7aa350;
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>اختبار الاستقامة القلبية في الإسلام</h1>
+            <p class="subtitle">اختبر فهمك لمفهوم الاستقامة القلبية ومتطلباتها</p>
+        </header>
+        
+        <div class="instructions">
+            <h3>تعليمات الاختبار:</h3>
+            <p>يتكون هذا الاختبار من 10 أسئلة متعددة الخيارات. اختر الإجابة الصحيحة لكل سؤال، ثم اضغط على زر "عرض النتائج" في نهاية الاختبار لمعرفة إجاباتك الصحيحة وتقييم أدائك.</p>
+        </div>
+        
+        <form id="quizForm">
+            <!-- السؤال 1 -->
+            <div class="question">
+                <h3><span class="question-number">1</span> ما معنى الاستقامة القلبية في الإسلام؟</h3>
+                <ul class="options">
+                    <li class="option" data-correct="true">لزوم الصراط المستقيم ظاهرًا وباطنًا</li>
+                    <li class="option">الالتزام بالعبادات الظاهرة فقط</li>
+                    <li class="option">الاهتمام بالمظهر الخارجي للتقوى</li>
+                    <li class="option">الانشغال بالطاعات وترك المعاصي فقط</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: لزوم الصراط المستقيم ظاهرًا وباطنًا</div>
+                    <div class="explanation">الاستقامة تعني لزوم الصراط المستقيم ظاهرًا وباطنًا، وهي من أعظم مقامات الدين.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 2 -->
+            <div class="question">
+                <h3><span class="question-number">2</span> ما الآية الكريمة التي أمر الله تعالى فيها بالاستقامة؟</h3>
+                <ul class="options">
+                    <li class="option">﴿إِنَّ الصَّلَاةَ تَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنكَرِ﴾</li>
+                    <li class="option" data-correct="true">﴿إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا﴾</li>
+                    <li class="option">﴿وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ﴾</li>
+                    <li class="option">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ﴾</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: ﴿إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا﴾</div>
+                    <div class="explanation">هذه الآية في سورة فصلت آية 30 توضح أهمية الاستقامة بعد الإيمان.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 3 -->
+            <div class="question">
+                <h3><span class="question-number">3</span> ما الحديث النبوي الذي يجمع الإيمان والاستقامة؟</h3>
+                <ul class="options">
+                    <li class="option">«إنما الأعمال بالنيات»</li>
+                    <li class="option">«الدين النصيحة»</li>
+                    <li class="option" data-correct="true">«قُلْ آمنتُ بالله ثم استقم»</li>
+                    <li class="option">«من حسن إسلام المرء تركه ما لا يعنيه»</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: «قُلْ آمنتُ بالله ثم استقم»</div>
+                    <div class="explanation">روى مسلم هذا الحديث الذي يجمع بين الإيمان والاستقامة كأساس للدين.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 4 -->
+            <div class="question">
+                <h3><span class="question-number">4</span> من القائل: "استقامة القلب أساس استقامة الجوارح"؟</h3>
+                <ul class="options">
+                    <li class="option">الحسن البصري</li>
+                    <li class="option">الإمام الغزالي</li>
+                    <li class="option" data-correct="true">ابن القيم</li>
+                    <li class="option">ابن تيمية</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: ابن القيم</div>
+                    <div class="explanation">قال ابن القيم رحمه الله في مدارج السالكين: "استقامة القلب أساس استقامة الجوارح، فإذا استقام القلب استقامت الجوارح كلها."</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 5 -->
+            <div class="question">
+                <h3><span class="question-number">5</span> ما أول شرط من شروط استقامة القلب؟</h3>
+                <ul class="options">
+                    <li class="option" data-correct="true">محبة الله وتقدّمها على كل محبوب</li>
+                    <li class="option">كثرة الصيام والقيام</li>
+                    <li class="option">حفظ القرآن الكريم</li>
+                    <li class="option">الانقطاع للعبادة</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: محبة الله وتقدّمها على كل محبوب</div>
+                    <div class="explanation">أول شروط استقامة القلب أن يكون حب الله أعظم من حب النفس، والأهل، والمال، والدنيا.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 6 -->
+            <div class="question">
+                <h3><span class="question-number">6</span> ما الآية التي تبين وجوب تقديم محبة الله على محبة الأهل والمال؟</h3>
+                <ul class="options">
+                    <li class="option">﴿وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ﴾</li>
+                    <li class="option" data-correct="true">﴿قُلْ إِن كَانَ آبَاؤُكُمْ ... أَحَبَّ إِلَيْكُم مِّنَ اللَّهِ ... فَتَرَبَّصُوا﴾</li>
+                    <li class="option">﴿إِنَّمَا وَلِيُّكُمُ اللَّهُ وَرَسُولُهُ﴾</li>
+                    <li class="option">﴿وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا﴾</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: ﴿قُلْ إِن كَانَ آبَاؤُكُمْ ... أَحَبَّ إِلَيْكُم مِّنَ اللَّهِ ... فَتَرَبَّصُوا﴾</div>
+                    <div class="explanation">هذه الآية في سورة التوبة آية 24 توضح وجوب تقديم محبة الله على كل محبوب.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 7 -->
+            <div class="question">
+                <h3><span class="question-number">7</span> ما الحديث الذي يشترط في الإيمان أن يكون النبي ﷺ أحب إلى المسلم من كل أحد؟</h3>
+                <ul class="options">
+                    <li class="option">«الإيمان بضع وسبعون شعبة»</li>
+                    <li class="option">«لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه»</li>
+                    <li class="option" data-correct="true">«لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين»</li>
+                    <li class="option">«ثلاث من كن فيه وجد حلاوة الإيمان»</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: «لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين»</div>
+                    <div class="explanation">هذا الحديث متفق عليه ويبين مكانة محبة الرسول ﷺ في الإيمان.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 8 -->
+            <div class="question">
+                <h3><span class="question-number">8</span> من القائل: "من أحب الله لم يعصه، ومن خافه لم يأمن من عقوبته"؟</h3>
+                <ul class="options">
+                    <li class="option">سفيان الثوري</li>
+                    <li class="option">مالك بن دينار</li>
+                    <li class="option" data-correct="true">الحسن البصري</li>
+                    <li class="option">سعيد بن المسيب</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: الحسن البصري</div>
+                    <div class="explanation">قال الحسن البصري هذه العبارة المشهورة التي تربط بين محبة الله وطاعته.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 9 -->
+            <div class="question">
+                <h3><span class="question-number">9</span> ما معنى تعظيم الأمر والنهي في الاستقامة القلبية؟</h3>
+                <ul class="options">
+                    <li class="option">الخوف من العقاب فقط</li>
+                    <li class="option">الالتزام بالفرائض وترك الكبائر</li>
+                    <li class="option" data-correct="true">الشعور بعظمة الله في كل أمر ونهي</li>
+                    <li class="option">الحرص على النوافل فقط</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: الشعور بعظمة الله في كل أمر ونهي</div>
+                    <div class="explanation">تعظيم الأمر والنهي يعني أن يشعر العبد بعظمة الله في كل أمر ونهي، فيمتثل أوامره ويجتنب نواهيه.</div>
+                </div>
+            </div>
+            
+            <!-- السؤال 10 -->
+            <div class="question">
+                <h3><span class="question-number">10</span> ما الآية التي تدل على تعظيم شعائر الله؟</h3>
+                <ul class="options">
+                    <li class="option">﴿إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا﴾</li>
+                    <li class="option">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾</li>
+                    <li class="option" data-correct="true">﴿ذَٰلِكَ وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾</li>
+                    <li class="option">﴿وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ﴾</li>
+                </ul>
+                <div class="answer-section">
+                    <div class="correct-answer">الإجابة الصحيحة: ﴿ذَٰلِكَ وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾</div>
+                    <div class="explanation">هذه الآية في سورة الحج آية 32 تربط بين تعظيم شعائر الله وتقوى القلوب.</div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button type="button" id="checkAnswers">تحقق من الإجابات</button>
+                <button type="button" id="showResults">عرض النتائج</button>
+            </div>
+        </form>
+        
+        <div class="results" id="results">
+            <h2>نتيجة الاختبار</h2>
+            <div class="score" id="score">0/10</div>
+            <p id="resultMessage"></p>
+            <button type="button" id="resetQuiz">إعادة الاختبار</button>
+        </div>
+        
+        <footer>
+            <p>اختبار الاستقامة القلبية في الإسلام - تم تصميمه بناءً على النصوص الشرعية</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const checkAnswersBtn = document.getElementById('checkAnswers');
+            const showResultsBtn = document.getElementById('showResults');
+            const resetQuizBtn = document.getElementById('resetQuiz');
+            const resultsDiv = document.getElementById('results');
+            const scoreSpan = document.getElementById('score');
+            const resultMessage = document.getElementById('resultMessage');
+            
+            // اختيار الإجابة
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const question = this.closest('.question');
+                    const optionsInQuestion = question.querySelectorAll('.option');
+                    
+                    // إزالة التحديد من جميع الخيارات في السؤال
+                    optionsInQuestion.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // تحديد الخيار المختار
+                    this.classList.add('selected');
+                });
+            });
+            
+            // التحقق من الإجابات
+            checkAnswersBtn.addEventListener('click', function() {
+                const questions = document.querySelectorAll('.question');
+                let correctAnswers = 0;
+                let totalQuestions = questions.length;
+                
+                questions.forEach(question => {
+                    const selectedOption = question.querySelector('.option.selected');
+                    const correctOption = question.querySelector('.option[data-correct="true"]');
+                    const answerSection = question.querySelector('.answer-section');
+                    
+                    if (selectedOption) {
+                        if (selectedOption === correctOption) {
+                            selectedOption.classList.add('correct');
+                            correctAnswers++;
+                        } else {
+                            selectedOption.classList.add('incorrect');
+                            correctOption.classList.add('correct');
+                        }
+                        
+                        answerSection.classList.add('show');
+                    }
+                });
+                
+                // عرض النتيجة المؤقتة
+                scoreSpan.textContent = `${correctAnswers}/${totalQuestions}`;
+                
+                // تحديد الرسالة بناءً على النتيجة
+                if (correctAnswers === totalQuestions) {
+                    resultMessage.textContent = "ممتاز! لقد أجبت على جميع الأسئلة بشكل صحيح. بارك الله فيك.";
+                } else if (correctAnswers >= totalQuestions * 0.7) {
+                    resultMessage.textContent = "جيد جدًا! لديك فهم جيد لمفهوم الاستقامة القلبية.";
+                } else if (correctAnswers >= totalQuestions * 0.5) {
+                    resultMessage.textContent = "ليس سيئًا! يمكنك تحسين معرفتك بمراجعة المواد مرة أخرى.";
+                } else {
+                    resultMessage.textContent = "يحتاج إلى تحسين. ننصحك بمراجعة مفهوم الاستقامة القلبية مرة أخرى.";
+                }
+                
+                resultsDiv.classList.add('show');
+            });
+            
+            // عرض النتائج
+            showResultsBtn.addEventListener('click', function() {
+                const answerSections = document.querySelectorAll('.answer-section');
+                answerSections.forEach(section => {
+                    section.classList.add('show');
+                });
+                
+                resultsDiv.classList.add('show');
+            });
+            
+            // إعادة الاختبار
+            resetQuizBtn.addEventListener('click', function() {
+                // إعادة تعيين جميع الخيارات
+                options.forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                // إخفاء أقسام الإجابات
+                const answerSections = document.querySelectorAll('.answer-section');
+                answerSections.forEach(section => {
+                    section.classList.remove('show');
+                });
+                
+                // إخفاء النتائج
+                resultsDiv.classList.remove('show');
+                
+                // التمرير إلى الأعلى
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+</body>
+</html>
