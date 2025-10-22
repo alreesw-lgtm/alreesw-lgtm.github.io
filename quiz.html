@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اختبار: مراتب التعظيم (10 أسئلة)</title>
+  <style>
+    :root{
+      --card-bg:#ffffff;
+      --page-bg:#f3f6fb;
+      --accent:#1f6feb;
+      --correct:#2a9d46;
+      --wrong:#d64545;
+      --text:#111827;
+    }
+    body{
+      font-family: "Segoe UI", Tahoma, "Helvetica Neue", Arial, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1{
+      text-align: center;
+      margin: 6px 0 18px 0;
+      font-size: 28px;
+    }
+    p.lead{
+      text-align:center;
+      margin:0 0 18px 0;
+      color:#374151;
+    }
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(20,30,60,0.06);
+      padding:20px;
+      margin-bottom:16px;
+      display:block;
+    }
+    .question-num{
+      font-weight:700;
+      display:inline-block;
+      min-width:44px;
+      height:44px;
+      line-height:44px;
+      text-align:center;
+      border-radius:8px;
+      background:linear-gradient(180deg,#eef6ff,#e7f0ff);
+      margin-left:12px;
+    }
+    h2.qtitle{
+      margin:0 0 12px 0;
+      font-size:18px;
+      display:flex;
+      align-items:center;
+    }
+    .options{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:6px;
+    }
+    label.opt{
+      border:1px solid #e6edf6;
+      border-radius:10px;
+      padding:12px;
+      cursor:pointer;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      transition:all .14s;
+      user-select:none;
+    }
+    label.opt:hover{ transform:translateY(-3px); box-shadow:0 8px 18px rgba(15,40,80,0.05);}
+    label.opt input{ width:18px; height:18px; accent-color:var(--accent);}
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin:20px 0 8px 0;
+    }
+    button{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(31,111,235,0.12);
+    }
+    button.secondary{
+      background:white;
+      color:var(--accent);
+      border:2px solid var(--accent);
+      box-shadow:none;
+    }
+    .result{
+      text-align:center;
+      margin-top:16px;
+      font-size:18px;
+    }
+    .answers{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+    }
+    .answer-item{
+      padding:12px;
+      border-radius:10px;
+      background:#fafafa;
+      border:1px solid #eee;
+    }
+    .correct{ border-left:6px solid var(--correct); }
+    .wrong{ border-left:6px solid var(--wrong); }
+    .explain{ color:#374151; margin-top:6px; font-size:14px; }
+    footer{ text-align:center; color:#6b7280; margin-top:28px; font-size:13px;}
+    @media (max-width:640px){
+      body{ padding:12px; }
+      h1{ font-size:20px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>اختبار: مراتب التعظيم (10 أسئلة)</h1>
+    <p class="lead">كل سؤال 10 نقاط — بعد الانتهاء اضغط "إنهاء الاختبار" لعرض النتيجة والإجابات الصحيحة.</p>
+
+    <form id="quizForm" class="quiz">
+      <!-- Question 1 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">1</span>ما المقصود بـ "تعظيم أمر الله ونهيه" كما ورد في النص؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="A"> تقدير أوامر الله ونواهيه وعدم تقديم الهوى أو العادة عليها</label>
+          <label class="opt"><input type="radio" name="q1" value="B"> الالتزام بالشعائر فقط دون التزام بالقلوب</label>
+          <label class="opt"><input type="radio" name="q1" value="C"> الإيمان بأسماء الله وصفاته فقط</label>
+          <label class="opt"><input type="radio" name="q1" value="D"> التسليم للقضاء والقدر فقط</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">2</span>أيُّ العبارات التالية تصف "تعظيم أسماء الله وصفاته"؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="A"> إنكار صفات الله وتبديلها</label>
+          <label class="opt"><input type="radio" name="q2" value="B"> الإيمان بأسماء الله وصفاته دون تعطيل أو تحريف أو تمثيل</label>
+          <label class="opt"><input type="radio" name="q2" value="C"> الاهتمام بالنعمة المادية فقط</label>
+          <label class="opt"><input type="radio" name="q2" value="D"> احترام الحرمات فقط</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">3</span>ما علامة من علامات تعظيم قدر الله ومشيئته حسب النص؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="A"> السخط على قضاء الله دائمًا</label>
+          <label class="opt"><input type="radio" name="q3" value="B"> التسليم للقدر والرضا بقضاء الله</label>
+          <label class="opt"><input type="radio" name="q3" value="C"> ترك الشعائر الشرعية</label>
+          <label class="opt"><input type="radio" name="q3" value="D"> التفاخر بالنعمة</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">4</span>أي آية ذُكِرت في النص لتأكيد تعظيم الشعائر؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="A"> ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً﴾</label>
+          <label class="opt"><input type="radio" name="q4" value="B"> ﴿ذَٰلِكَ وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾</label>
+          <label class="opt"><input type="radio" name="q4" value="C"> ﴿إِيَّاكَ نَعْبُدُ﴾</label>
+          <label class="opt"><input type="radio" name="q4" value="D"> ﴿وَاعْبُدُوا اللَّهَ﴾</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">5</span>ما معنى "تعظيم الحق في العبادة" وفق النص؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="A"> إخلاص العبادة وترك الرياء والعجب</label>
+          <label class="opt"><input type="radio" name="q5" value="B"> التفاخر بالعبادة أمام الناس</label>
+          <label class="opt"><input type="radio" name="q5" value="C"> التفريط في الشعائر</label>
+          <label class="opt"><input type="radio" name="q5" value="D"> جعل العبادة مجرد عادات اجتماعية</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">6</span>أيٌّ من التالي يُعدُّ من مراتب "تعظيم النعمة"؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="A"> الجحود وعدم الشكر</label>
+          <label class="opt"><input type="radio" name="q6" value="B"> شكر نعم الله والاعتراف بأنها منه</label>
+          <label class="opt"><input type="radio" name="q6" value="C"> جعل النعمة وسيلة للتفاخر</label>
+          <label class="opt"><input type="radio" name="q6" value="D"> إهمال النعم وعدم تقديرها</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">7</span>ما المراد بـ "تعظيم الحرمات"؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="A"> تجاهل حدود الله</label>
+          <label class="opt"><input type="radio" name="q7" value="B"> انتهاك ما حرّم الله بأي شكل</label>
+          <label class="opt"><input type="radio" name="q7" value="C"> احترام ما حرمه الله وتوقير حدوده</label>
+          <label class="opt"><input type="radio" name="q7" value="D"> تفسير الحرمات بحسب المزاج الشخصي</label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">8</span>أيُّ بند من البنود التالية ذُكر كمثال على شعائر الله في النص؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="A"> الصوم</label>
+          <label class="opt"><input type="radio" name="q8" value="B"> العمل التجاري فقط</label>
+          <label class="opt"><input type="radio" name="q8" value="C"> اللهو واللهو الاجتماعي</label>
+          <label class="opt"><input type="radio" name="q8" value="D"> الكسب غير المشروع</label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">9</span>ما العلاقة بين التفكر في أسماء الله وصفاته وخشوع القلب بحسب النص؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="A"> التفكر يؤدي إلى الكبر والغرور</label>
+          <label class="opt"><input type="radio" name="q9" value="B"> التفكر في الأسماء والصفات يجعل القلب خاشعًا ومحبًا لله</label>
+          <label class="opt"><input type="radio" name="q9" value="C"> لا علاقة بين التفكر والخشوع</label>
+          <label class="opt"><input type="radio" name="q9" value="D"> التفكر يؤدي إلى الشك في الإيمان</label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="card">
+        <h2 class="qtitle"><span class="question-num">10</span>من أقوال ابن القيم المذكورة في النص: ماذا قال عن قدر الإسلام في قلب العبد؟</h2>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="A"> "قدر الإسلام في قلب العبد كقدر تعظيمه لأمر الله."</label>
+          <label class="opt"><input type="radio" name="q10" value="B"> "الإسلام ليس له علاقة بتعظيم أوامر الله."</label>
+          <label class="opt"><input type="radio" name="q10" value="C"> "تعظيم النعمة أهم من تعظيم الأوامر"</label>
+          <label class="opt"><input type="radio" name="q10" value="D"> "لا حاجة للتسليم للقدر"</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="submitBtn">إنهاء الاختبار</button>
+        <button type="reset" class="secondary" id="resetBtn">إعادة تعيين الإجابات</button>
+      </div>
+
+    </form>
+
+    <div id="resultArea" class="result" aria-live="polite"></div>
+
+    <div id="answersArea" class="answers" style="display:none;"></div>
+
+    <footer>بني هذا الاختبار من النص المرفق عن مراتب التعظيم.</footer>
+  </div>
+
+  <script>
+    // الإجابات الصحيحة (مطابقة للقيم المحددة أعلاه)
+    const correctAnswers = {
+      q1: "A",
+      q2: "B",
+      q3: "B",
+      q4: "B",
+      q5: "A",
+      q6: "B",
+      q7: "C",
+      q8: "A",
+      q9: "B",
+      q10: "A"
+    };
+
+    const explanations = {
+      q1: "تعظيم أمر الله ونهيه يعني تقدير أوامر الله ونواهيه وعدم تقديم الهوى أو العادة عليها كما ورد في النص.",
+      q2: "النص ذكر: الإيمان الكامل بأسماء الله وصفاته دون تعطيل أو تحريف أو تمثيل.",
+      q3: "النص يذكر أن التسليم لحكم الله والرضا بقضائه من علامات التعظيم.",
+      q4: "النص اقتبس: ﴿ذَٰلِكَ وَمَن يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِن تَقْوَى الْقُلُوبِ﴾ (سورة الحج: الآية 32).",
+      q5: "النص قال: إخلاص العبادة لله وحده وترك الرياء والعجب من مراتب تعظيم الحق في العبادة.",
+      q6: "تعظيم النعمة يشمل شكر نعم الله والاعتراف بأنها منه وحده.",
+      q7: "تعظيم الحرمات يعني احترام ما حرمه الله وعدم انتهاكه وتوقير حدوده.",
+      q8: "النص ذكر أمثلة للشعائر مثل الصلاة، الصيام، الحج، والمساجد؛ والصوم مذكور صراحة.",
+      q9: "النص ذكر أن التفكر في أسماء الله وصفاته يجعل القلب خاشعًا ومحبًا لله.",
+      q10: "النص نقل قول ابن القيم: \"قدر الإسلام في قلب العبد كقدر تعظيمه لأمر الله.\""
+    };
+
+    document.getElementById('submitBtn').addEventListener('click', function(){
+      const form = document.getElementById('quizForm');
+      const formData = new FormData(form);
+      // Check all questions answered
+      const keys = Object.keys(correctAnswers);
+      for (let k of keys){
+        if (!formData.has(k)){
+          alert("يرجى الإجابة على كل الأسئلة قبل إنهاء الاختبار.");
+          return;
+        }
+      }
+
+      // Calculate score
+      let score = 0;
+      const answersArea = document.getElementById('answersArea');
+      answersArea.innerHTML = '';
+      answersArea.style.display = 'block';
+
+      keys.forEach((q,i) => {
+        const userAns = formData.get(q);
+        const isCorrect = userAns === correctAnswers[q];
+        if (isCorrect) score += 10;
+
+        const item = document.createElement('div');
+        item.className = 'answer-item ' + (isCorrect ? 'correct' : 'wrong');
+        item.innerHTML = `
+          <strong>السؤال ${i+1} — إجابتك:</strong> ${userAns} &nbsp; 
+          <strong>الصحيح:</strong> ${correctAnswers[q]}
+          <div class="explain">${explanations[q]}</div>
+        `;
+        answersArea.appendChild(item);
+      });
+
+      // Display result
+      const resultArea = document.getElementById('resultArea');
+      resultArea.innerHTML = `<div style="font-size:20px;font-weight:800">درجتك: ${score} / 100</div>
+                              <div style="margin-top:6px;color:#374151">كل سؤال من 10 نقاط. تمت مراجعة إجاباتك وعرض الإجابات الصحيحة أدناه.</div>`;
+
+      // Disable form inputs after submission
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(inp => inp.disabled = true);
+      document.getElementById('submitBtn').disabled = true;
+    });
+
+    // Reset button behavior: re-enable inputs and hide answers/result
+    document.getElementById('resetBtn').addEventListener('click', function(){
+      const form = document.getElementById('quizForm');
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(inp => inp.disabled = false);
+      document.getElementById('resultArea').innerHTML = '';
+      const answersArea = document.getElementById('answersArea');
+      answersArea.style.display = 'none';
+      answersArea.innerHTML = '';
+      document.getElementById('submitBtn').disabled = false;
+    });
+  </script>
+</body>
+</html>
