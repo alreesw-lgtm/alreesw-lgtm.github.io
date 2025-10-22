@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>بطاقات تعظيم الأمر والنهي</title>
+  <style>
+    body{
+      background:#08111f;
+      color:#f5f5f5;
+      font-family:"Noto Naskh Arabic","Segoe UI",sans-serif;
+      margin:0;
+      padding:20px;
+    }
+    h1{
+      text-align:center;
+      margin-bottom:25px;
+      color:#ffc857;
+    }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px;
+      padding:25px;
+      margin:20px auto;
+      max-width:800px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+      transition:transform 0.3s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+    }
+    .title{
+      font-size:24px;
+      font-weight:bold;
+      color:#ffd55a;
+      margin-bottom:10px;
+    }
+    .quote{
+      font-size:20px;
+      line-height:1.7;
+      margin-bottom:10px;
+    }
+    .expand{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.4s ease;
+      font-size:18px;
+      line-height:1.8;
+      color:#d0d7e0;
+      margin-top:10px;
+    }
+    .card.open .expand{
+      max-height:500px;
+    }
+    .btn{
+      background:#ffc857;
+      color:#111;
+      border:none;
+      padding:10px 18px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:bold;
+    }
+    .btn:hover{
+      background:#ffd972;
+    }
+    footer{
+      text-align:center;
+      margin-top:30px;
+      color:#aaa;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>بطاقات تعظيم الأمر والنهي</h1>
+
+  <div class="card">
+    <div class="title">النص الأصلي</div>
+    <div class="quote">«أن لا يُعارضا بترخُّصٍ جافٍّ، ولا يُعرَضا لتشديدٍ غالٍ، ولا يُحملا على علّةٍ توهِّن الانقياد.»</div>
+    <button class="btn" onclick="toggleCard(this)">عرض الشرح</button>
+    <div class="expand">
+      <p>النص يوضّح أن تعظيم أوامر الله ونواهيه لا يكون بالتساهل ولا بالتشدد، بل بالاعتدال الذي يعبّر عن الخضوع الصادق لله تعالى.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">لا يُعارضا بترخُّصٍ جافّ</div>
+    <div class="quote">أي لا يُقابل أمر الله بالتساهل والتهاون بحجة الرخصة أو التيسير دون مراعاة للتعظيم.</div>
+    <button class="btn" onclick="toggleCard(this)">عرض الشرح</button>
+    <div class="expand">
+      <p>من مظاهر الترخص الجاف أن يُهمل العبد الواجبات أو يُضيّع حدود الله بدعوى أن الدين يسر، بينما التعظيم الحق أن يُراعى أمر الله بعزيمة ووقار.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">ولا يُعرَضا لتشديدٍ غالٍ</div>
+    <div class="quote">أي لا يُقابل أمر الله بالغلو والتشدد المفرط الذي يُضيّق على النفس بما لم يأمر الله به.</div>
+    <button class="btn" onclick="toggleCard(this)">عرض الشرح</button>
+    <div class="expand">
+      <p>التشديد الزائد هو نوع من مجاوزة الحد، والدين قائم على اليسر، قال النبي ﷺ: «إن الدين يُسر، ولن يُشادّ الدينَ أحدٌ إلا غلبه».</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">ولا يُحملا على علّةٍ توهِّن الانقياد</div>
+    <div class="quote">أي لا ينبغي أن تُعلَّل الأوامر بعلة عقلية تُضعف التسليم لله تعالى.</div>
+    <button class="btn" onclick="toggleCard(this)">عرض الشرح</button>
+    <div class="expand">
+      <p>الانقياد الصادق يكون لأن الله أمر، لا لمجرد فائدة دنيوية أو تعليل عقلي. فالمؤمن يُطيع لأن الله أمره، سواء ظهرت له الحكمة أم لم تظهر.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">ثمرات تعظيم الأمر والنهي</div>
+    <div class="quote">من عظّم أمر الله ونهيه كان من الأبرار الصادقين، دلّ ذلك على قوة الإيمان وسلامة القلب من النفاق.</div>
+    <button class="btn" onclick="toggleCard(this)">عرض الشرح</button>
+    <div class="expand">
+      <p>تعظيم الأمر والنهي هو مقياس الإيمان، فمن أطاع الله محبةً له وتعظيماً لأمره، كان من المؤمنين الخالصين الذين قال الله عنهم: ﴿فلا وربك لا يؤمنون حتى يحكموك... ويسلموا تسليماً﴾.</p>
+    </div>
+  </div>
+
+  <footer>بطاقات تفاعلية حول قول شيخ الإسلام ابن تيمية في تعظيم الأمر والنهي — تصميم واضح وكبير لسهولة القراءة والطباعة.</footer>
+
+  <script>
+    function toggleCard(btn){
+      const card = btn.closest('.card');
+      card.classList.toggle('open');
+      btn.textContent = card.classList.contains('open') ? 'إخفاء الشرح' : 'عرض الشرح';
+    }
+  </script>
+</body>
+</html>
